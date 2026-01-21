@@ -1,0 +1,205 @@
+/* === GOOGLE FONTS FIRST — MUST BE AT TOP FOR v4 === */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+@import "tailwindcss";
+
+@layer utilities {
+  .glass-morphic {
+    background: rgba(5, 13, 8, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(57, 255, 20, 0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+  }
+
+  .glass-morphic:hover {
+    border-color: rgba(57, 255, 20, 0.5);
+    box-shadow: 0 0 20px rgba(6, 24, 3, 0.15);
+  }
+  .parallax-tilt {
+    transition: transform 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  }
+
+  .parallax-tilt:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
+  }
+
+  .bg-circuit {
+    background-image: radial-gradient(circle at 2px 2px, rgba(57,255,20,0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}
+
+@theme {
+  --color-primary: #3cf91a;
+  --color-background-light: #f6f8f5;
+  --color-background-dark: #0a1508; /* Darker background for better contrast #0a1508 #0d1e0a */
+
+  /* Font fix: Use --font-sans to override default (system-ui) */
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-display: "Space Grotesk", sans-serif; /* For your body class="font-display" */
+
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* === FIX 1: Typing animation as SINGLE --animate-type-cursor (typing width + blink cursor) === */
+  --animate-type-cursor: typing-loop 10s infinite;
+
+  /* Other custom animations */
+  --animate-bounce-slow: bounce 3s infinite;
+  --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-reverse: spin 15s linear infinite reverse;
+
+  /* Keyframes INSIDE @theme (v4 requirement for custom animate-*) */
+  @keyframes typing {
+    0% { width: 0; }
+    50% { width: 100%; } /* Type out over half the cycle */
+    100% { width: 100%; } /* Hold full text */
+  }
+  @keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--color-primary); }
+  }
+  @keyframes typing-loop {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px var(--color-primary)); }
+    50% { opacity: 0.7; filter: drop-shadow(0 0 8px var(--color-primary)); }
+  }
+}
+
+/* removing the scroll bar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+@property --num-exp { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --num-proj { syntax: "<integer>"; initial-value: 0; inherits: false; }
+@property --num-client { syntax: "<integer>"; initial-value: 0; inherits: false; }
+
+.stat-card { opacity: 0; animation: fade-in-up 0.8s ease-out forwards; }
+
+.stat-exp {
+  counter-reset: num-exp var(--num-exp);
+  animation: count-exp 2s ease-out forwards, text-glow 2s infinite ease-in-out;
+  animation-delay: 0.2s, 2s;
+}
+.stat-exp::after { content: counter(num-exp) "+"; }
+
+.stat-proj {
+  counter-reset: num-proj var(--num-proj);
+  animation: count-proj 2.2s ease-out forwards, text-glow 2s infinite ease-in-out;
+  animation-delay: 0.4s, 2.2s;
+}
+.stat-proj::after { content: counter(num-proj) "+"; }
+
+.stat-client {
+  counter-reset: num-client var(--num-client);
+  animation: count-client 2.5s ease-out forwards, text-glow 2s infinite ease-in-out;
+  animation-delay: 0.6s, 2.5s;
+}
+.stat-client::after { content: counter(num-client) "+"; }
+
+@keyframes count-exp   { from { --num-exp: 0; opacity: 0; transform: translateY(10px); } to { --num-exp: 5; opacity: 1; transform: translateY(0); } }
+@keyframes count-proj  { from { --num-proj: 0; opacity: 0; transform: translateY(10px); } to { --num-proj: 40; opacity: 1; transform: translateY(0); } }
+@keyframes count-client{ from { --num-client: 0; opacity: 0; transform: translateY(10px); } to { --num-client: 20; opacity: 1; transform: translateY(0); } }
+@keyframes fade-in-up  { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: var(--color-primary); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 2px var(--color-primary)); }
+  50% { opacity: .7; filter: drop-shadow(0 0 8px var(--color-primary)); }
+}
+
+@keyframes text-glow {
+  0%, 100% { text-shadow: 0 0 5px color-mix(in srgb, var(--color-primary) 10%, transparent); }
+  50% { text-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 60%, transparent), 0 0 10px color-mix(in srgb, var(--color-primary) 40%, transparent); }
+}
+
+/* Remove link underlines */
+@layer base {
+  a { text-decoration: none; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+.glass-panel {
+  background: rgba(22, 32, 21, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(60, 249, 26, 0.1);
+}
+.neon-glow {
+  box-shadow: 0 0 15px rgba(60, 249, 26, 0.15);
+}
+.neon-triangle-glow {
+  filter: drop-shadow(0 0 5px rgba(60, 249, 26, 0.8));
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.active-timeline-item .rounded-full {
+  box-shadow: 0 0 30px rgba(60,249,26,0.6);
+}
+.active-timeline-item h3 {
+  @apply text-primary text-2xl;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glass-card {
+  background: rgba(20, 30, 20, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(60, 249, 26, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  background: rgba(28, 53, 24, 0.8);
+  border-color: rgba(60, 249, 26, 0.6);
+  box-shadow: 0 0 30px rgba(60, 249, 26, 0.15);
+  transform: translateY(-2px);
+}
+.skill-bar-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg) translateX(-150%);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  100% {
+    transform: skewX(-20deg) translateX(150%);
+  }
+}
