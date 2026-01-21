@@ -1,0 +1,67 @@
+# Futuristic Services Portfolio
+
+A modern, dark-mode, futuristic portfolio website showcasing services, projects, and technical capabilities through glassmorphic UI, animated interactions, and clean architecture.
+
+Designed to communicate technical depth, visual sophistication, and engineering clarity.
+
+---
+
+## ✨ Features
+
+- Dark, hacker-inspired aesthetic
+- Glassmorphic service cards with neon hover borders
+- Parallax tilt and hover animations
+- Fully responsive layout (mobile → desktop)
+- Modular, scalable component structure
+- Optimized Tailwind CSS configuration
+- Accessible typography and spacing
+- Clean section transitions and visual hierarchy
+
+---
+
+## 🧠 Design Philosophy
+
+This project focuses on:
+
+- **Clarity over clutter** – minimal but expressive UI
+- **Motion with purpose** – subtle animations to guide attention
+- **Scalability** – reusable patterns and utilities
+- **Performance** – no unnecessary dependencies
+
+Every section is designed to feel intentional, immersive, and technically refined.
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- **React / Next.js**
+- **Tailwind CSS**
+- JavaScript (ES6+)
+
+### Styling & UI
+- Custom Tailwind utilities
+- Glassmorphism & neon glow effects
+- Responsive grid system
+- Dark mode first design
+
+### Tooling
+- Node.js
+- npm
+- Git & GitHub
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── components/        # Reusable UI components
+├── sections/          # Page sections (Services, Projects, Contact, etc.)
+├── styles/            # Global styles and Tailwind layers
+├── public/            # Static assets
+├── pages/             # App routing (Next.js)
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+└── README.md
