@@ -43,7 +43,7 @@ const Footer = () => {
                                     call
                                 </span>
                                 <span className="text-gray-400 text-sm group-hover:text-primary transition-colors">
-                                    +1 (555) 123-4567
+                                    +254 745 115 711
                                 </span>
                             </div>
 
@@ -52,7 +52,7 @@ const Footer = () => {
                                     mail
                                 </span>
                                 <span className="text-gray-400 text-sm group-hover:text-primary transition-colors">
-                                    hello@devportfolio.com
+                                    ngangah@dev.com
                                 </span>
                             </div>
                         </div>

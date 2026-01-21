@@ -134,7 +134,7 @@ export default function Contact() {
                                     <div>
                                         <h3 className="text-lg font-bold text-white mb-1">Quick Contact</h3>
                                         <p className="text-gray-400 text-sm">
-                                            Email: <a className="text-primary hover:underline" href="mailto:hello@dev_portfolio.com">hello@dev_portfolio.com</a>
+                                            Email: <a className="text-primary hover:underline" href="mailto:hello@dev_portfolio.com">ngangah@dev.com</a>
                                         </p>
                                     </div>
                                 </div>
@@ -146,8 +146,8 @@ export default function Contact() {
                                     <div>
                                         <h3 className="text-lg font-bold text-white mb-1">Phone Number</h3>
                                         <p className="text-gray-400 text-sm">
-                                            International: +1 (555) 123-4567<br />
-                                            Support: +1 (555) 987-6543
+                                            International: +(254) 745 115 711<br />
+                                            Support: +(254) 745 115 711
                                         </p>
                                     </div>
                                 </div>
@@ -159,8 +159,8 @@ export default function Contact() {
                                     <div>
                                         <h3 className="text-lg font-bold text-white mb-1">Headquarters</h3>
                                         <p className="text-gray-400 text-sm">
-                                            123 Tech Plaza, Suite 400<br />
-                                            San Francisco, CA 94105, USA
+                                            Tech Plaza, Suite 105<br />
+                                            Nairibi, P.O 94105, Kenya.
                                         </p>
                                     </div>
                                 </div>
