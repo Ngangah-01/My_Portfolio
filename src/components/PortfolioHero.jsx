@@ -47,7 +47,7 @@ export default function PortfolioHero() {
                             <span className="material-symbols-outlined text-[20px] font-bold">code</span>
                         </div>
                         <div className="flex flex-col leading-none">
-                            <span className="text-lg font-bold tracking-tight text-white">ALEX<span className="text-primary">.DEV</span></span>
+                            <span className="text-lg font-bold tracking-tight text-white">NGANGA<span className="text-primary">.DEV</span></span>
                             <span className="text-[10px] text-white/40 tracking-[0.2em] uppercase">Portfolio</span>
                         </div>
                     </div>

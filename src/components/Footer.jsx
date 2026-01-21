@@ -28,7 +28,7 @@ const Footer = () => {
                             </div>
 
                             <span className="text-white text-xl font-bold tracking-tight uppercase text-glow">
-                                DEV_PORTFOLIO
+                                NGANGA_DEV
                             </span>
                         </div>
 
