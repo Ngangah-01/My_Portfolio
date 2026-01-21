@@ -160,7 +160,7 @@ export default function Contact() {
                                         <h3 className="text-lg font-bold text-white mb-1">Headquarters</h3>
                                         <p className="text-gray-400 text-sm">
                                             Tech Plaza, Suite 105<br />
-                                            Nairibi, P.O 94105, Kenya.
+                                            Nairobi, P.O 94105, Kenya.
                                         </p>
                                     </div>
                                 </div>
