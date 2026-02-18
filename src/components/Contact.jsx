@@ -1,6 +1,8 @@
+import { MdCall, MdMail, MdPinDrop, MdSend } from "react-icons/md";
+
 export default function Contact() {
     return (
-        <section className="relative bg-background-dark py-12 px-6 lg:py-24 overflow-hidden">
+        <section id="contact" className="relative bg-background-dark py-12 px-6 lg:py-24 overflow-hidden">
             {/* Background Glows */}
             <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
                 <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]"></div>
@@ -105,7 +107,7 @@ export default function Contact() {
                                     className="mt-4 w-full md:w-auto bg-primary text-background-dark px-10 py-4 rounded-xl font-bold hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(60,249,26,0.4)] transition-all duration-300 flex items-center justify-center gap-2"
                                 >
                                     Initialize Connection
-                                    <span className="material-symbols-outlined">send</span>
+                                    <MdSend />
                                 </button>
                             </form>
                         </div>
@@ -129,7 +131,7 @@ export default function Contact() {
                             <div className="bg-surface-dark/50 border border-white/10 rounded-3xl p-8 space-y-8 backdrop-blur-sm">
                                 <div className="flex items-start gap-4">
                                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                                        <span className="material-symbols-outlined">mail</span>
+                                        <MdMail />
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold text-white mb-1">Quick Contact</h3>
@@ -141,7 +143,7 @@ export default function Contact() {
 
                                 <div className="flex items-start gap-4">
                                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                                        <span className="material-symbols-outlined">call</span>
+                                        <MdCall />
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold text-white mb-1">Phone Number</h3>
@@ -154,7 +156,7 @@ export default function Contact() {
 
                                 <div className="flex items-start gap-4">
                                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                                        <span className="material-symbols-outlined">pin_drop</span>
+                                        <MdPinDrop />
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold text-white mb-1">Headquarters</h3>

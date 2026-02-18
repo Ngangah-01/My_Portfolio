@@ -1,4 +1,5 @@
 import React from "react";
+import { MdArrowUpward, MdCall, MdLink, MdMail } from "react-icons/md";
 
 const Footer = () => {
     return (
@@ -39,18 +40,14 @@ const Footer = () => {
 
                         <div className="space-y-3 pt-2">
                             <div className="flex items-center gap-3 group">
-                                <span className="material-symbols-outlined text-primary text-xl drop-shadow-[0_0_5px_rgba(60,249,26,0.4)]">
-                                    call
-                                </span>
+                                <MdCall className="text-primary text-xl drop-shadow-[0_0_5px_rgba(60,249,26,0.4)]" />
                                 <span className="text-gray-400 text-sm group-hover:text-primary transition-colors">
                                     +254 745 115 711
                                 </span>
                             </div>
 
                             <div className="flex items-center gap-3 group">
-                                <span className="material-symbols-outlined text-primary text-xl drop-shadow-[0_0_5px_rgba(60,249,26,0.4)]">
-                                    mail
-                                </span>
+                                <MdMail className="text-primary text-xl drop-shadow-[0_0_5px_rgba(60,249,26,0.4)]" />
                                 <span className="text-gray-400 text-sm group-hover:text-primary transition-colors">
                                     ngangah@dev.com
                                 </span>
@@ -120,9 +117,7 @@ const Footer = () => {
                                         className="flex items-center gap-4 text-gray-400 hover:text-primary transition-colors group"
                                     >
                                         <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/5 transition-all">
-                                            <span className="material-symbols-outlined text-lg">
-                                                link
-                                            </span>
+                                            <MdLink className="text-lg" />
                                         </div>
                                         <span className="text-sm font-medium">
                                             {social.name}
@@ -150,9 +145,7 @@ const Footer = () => {
                             Back to Top
                         </span>
                         <div className="size-10 rounded-full border border-primary/30 flex items-center justify-center bg-primary/5 group-hover:bg-primary group-hover:text-black transition-all duration-500 hover:shadow-[0_0_20px_rgba(60,249,26,0.4)]">
-                            <span className="material-symbols-outlined transition-transform duration-300 group-hover:-translate-y-1">
-                                arrow_upward
-                            </span>
+                            <MdArrowUpward className="transition-transform duration-300 group-hover:-translate-y-1" />
                         </div>
                     </button>
                 </div>

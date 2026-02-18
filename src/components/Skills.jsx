@@ -1,6 +1,33 @@
+import {
+    MdAllInclusive,
+    MdAnalytics,
+    MdApi,
+    MdCloudCircle,
+    MdCloudDone,
+    MdCode,
+    MdDevices,
+    MdDns,
+    MdGridView,
+    MdHtml,
+    MdInsights,
+    MdInstallMobile,
+    MdIntegrationInstructions,
+    MdLayers,
+    MdOutlineStorage,
+    MdPublish,
+    MdRocketLaunch,
+    MdSettingsEthernet,
+    MdSmartphone,
+    MdStorage,
+    MdTerminal,
+    MdVerified,
+    MdWeb,
+    MdWorkspaces,
+} from "react-icons/md";
+
 export default function Skills() {
     return (
-        <section className="relative min-h-screen flex flex-col py-12 px-6 md:px-10 lg:px-24 bg-background-dark">
+        <section id="skills" className="relative min-h-screen flex flex-col py-12 px-6 md:px-10 lg:px-24 bg-background-dark">
             {/* Background Effects */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute -top-20 -left-20 text-[20vw] font-bold text-primary opacity-[0.02] leading-none whitespace-nowrap select-none">
@@ -35,12 +62,12 @@ export default function Skills() {
                     {/* View Toggle (Grid selected by default) */}
                     <div className="flex h-10 items-center rounded-lg bg-[#1c3518] p-1 border border-primary/20">
                         <label className="cursor-pointer flex h-full items-center px-4 rounded-md text-gray-400 hover:text-primary transition-all">
-                            <span className="material-symbols-outlined text-sm mr-2">workspaces</span>
+                            <MdWorkspaces className="text-sm mr-2" />
                             <span className="text-sm font-medium">Orbit</span>
                             <input className="hidden" type="radio" name="view" value="orbit" />
                         </label>
                         <label className="cursor-pointer flex h-full items-center px-4 rounded-md bg-primary text-background-dark shadow-sm transition-all">
-                            <span className="material-symbols-outlined text-sm mr-2">grid_view</span>
+                            <MdGridView className="text-sm mr-2" />
                             <span className="text-sm font-bold">Grid</span>
                             <input className="hidden" type="radio" name="view" value="grid" defaultChecked />
                         </label>
@@ -68,7 +95,7 @@ export default function Skills() {
                     {/* Frontend */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="material-symbols-outlined text-blue-400 text-2xl">devices</span>
+                            <MdDevices className="text-blue-400 text-2xl" />
                             <h3 className="text-2xl font-bold text-white tracking-wide">Frontend Domain</h3>
                             <div className="h-[1px] bg-gradient-to-r from-blue-400/50 to-transparent flex-1 ml-4"></div>
                         </div>
@@ -76,11 +103,11 @@ export default function Skills() {
                             {/* Web Fundamentals */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">html</span>
+                                    <MdHtml className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">code_blocks</span>
+                                        <MdCode className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 rounded px-2 py-1">WEB</span>
                                 </div>
@@ -107,11 +134,11 @@ export default function Skills() {
                             {/* Web Frameworks */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">layers</span>
+                                    <MdLayers className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(56,189,248,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">web</span>
+                                        <MdWeb className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-sky-400 bg-sky-500/10 border border-sky-500/20 rounded px-2 py-1">FRAMEWORKS</span>
                                 </div>
@@ -138,11 +165,11 @@ export default function Skills() {
                             {/* Mobile Solutions */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">smartphone</span>
+                                    <MdSmartphone className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(192,132,252,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">install_mobile</span>
+                                        <MdInstallMobile className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-purple-400 bg-purple-500/10 border border-purple-500/20 rounded px-2 py-1">MOBILE</span>
                                 </div>
@@ -171,7 +198,7 @@ export default function Skills() {
                     {/* Backend & Intelligence */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="material-symbols-outlined text-emerald-400 text-2xl">dns</span>
+                            <MdDns className="text-emerald-400 text-2xl" />
                             <h3 className="text-2xl font-bold text-white tracking-wide">Backend & Intelligence</h3>
                             <div className="h-[1px] bg-gradient-to-r from-emerald-400/50 to-transparent flex-1 ml-4"></div>
                         </div>
@@ -179,11 +206,11 @@ export default function Skills() {
                             {/* Backend Engineering */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">terminal</span>
+                                    <MdTerminal className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(251,146,60,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">settings_ethernet</span>
+                                        <MdSettingsEthernet className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-orange-400 bg-orange-500/10 border border-orange-500/20 rounded px-2 py-1">SERVER</span>
                                 </div>
@@ -210,11 +237,11 @@ export default function Skills() {
                             {/* MERN Stack - Highlighted as Expert */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden ring-1 ring-primary/40 bg-primary/5">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">integration_instructions</span>
+                                    <MdIntegrationInstructions className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(60,249,26,0.2)]">
-                                        <span className="material-symbols-outlined text-2xl">verified</span>
+                                        <MdVerified className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-background-dark bg-primary border border-primary rounded px-2 py-1 shadow-[0_0_10px_rgba(60,249,26,0.4)]">EXPERT</span>
                                 </div>
@@ -241,11 +268,11 @@ export default function Skills() {
                             {/* API Architecture */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">api</span>
+                                    <MdApi className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
-                                    <div className="w-12 h-12 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(45,212,191,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">hub</span>
+                                        <div className="w-12 h-12 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(45,212,191,0.1)]">
+                                        <MdApi className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-teal-400 bg-teal-500/10 border border-teal-500/20 rounded px-2 py-1">CONNECT</span>
                                 </div>
@@ -272,11 +299,11 @@ export default function Skills() {
                             {/* Data Science & ML */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">insights</span>
+                                    <MdInsights className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(244,114,182,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">analytics</span>
+                                        <MdAnalytics className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-pink-400 bg-pink-500/10 border border-pink-500/20 rounded px-2 py-1">SCIENCE</span>
                                 </div>
@@ -305,7 +332,7 @@ export default function Skills() {
                     {/* Infrastructure & Ops */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="material-symbols-outlined text-purple-400 text-2xl">cloud_done</span>
+                            <MdCloudDone className="text-purple-400 text-2xl" />
                             <h3 className="text-2xl font-bold text-white tracking-wide">Infrastructure & Ops</h3>
                             <div className="h-[1px] bg-gradient-to-r from-purple-400/50 to-transparent flex-1 ml-4"></div>
                         </div>
@@ -313,11 +340,11 @@ export default function Skills() {
                             {/* Database Systems */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">database</span>
+                                    <MdStorage className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(251,113,133,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">storage</span>
+                                        <MdOutlineStorage className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-rose-400 bg-rose-500/10 border border-rose-500/20 rounded px-2 py-1">DATA</span>
                                 </div>
@@ -344,11 +371,11 @@ export default function Skills() {
                             {/* DevOps */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">cloud_circle</span>
+                                    <MdCloudCircle className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(34,211,238,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">all_inclusive</span>
+                                        <MdAllInclusive className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 rounded px-2 py-1">CI/CD</span>
                                 </div>
@@ -375,11 +402,11 @@ export default function Skills() {
                             {/* Cloud Deployment */}
                             <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">rocket_launch</span>
+                                    <MdRocketLaunch className="text-6xl" />
                                 </div>
                                 <div className="flex justify-between items-start z-10">
                                     <div className="w-12 h-12 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(129,140,248,0.1)]">
-                                        <span className="material-symbols-outlined text-2xl">publish</span>
+                                        <MdPublish className="text-2xl" />
                                     </div>
                                     <span className="text-[10px] font-mono font-bold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 rounded px-2 py-1">DEPLOY</span>
                                 </div>

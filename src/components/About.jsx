@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { MdDownload, MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 export default function About() {
     // Trigger stagger animations on mount (fade-in-up with delays)
@@ -11,8 +12,42 @@ export default function About() {
         });
     }, []);
 
+    const timelineItems = [
+        {
+            title: "Senior Frontend Engineer",
+            date: "2021 - Present",
+            desc: "Leading the frontend architecture for next-gen SaaS platforms. Specialized in micro-frontends and high-performance rendering.",
+            tags: ["React", "TypeScript", "Three.js"],
+            current: true,
+        },
+        {
+            title: "Creative Developer",
+            date: "2018 - 2021",
+            desc: "Collaborated with design teams to bring award-winning websites to life. Focused on interaction design and WebGL.",
+            tags: ["Stitch", "Figma"],
+        },
+        {
+            title: "Junior Web Dev",
+            date: "2016 - 2018",
+            desc: "Started the journey building responsive layouts and mastering the fundamentals of the web.",
+            tags: [],
+        },
+        {
+            title: "Freelance Developer",
+            date: "2015 - 2016",
+            desc: "Worked with small businesses to create their first online presence, customizing WordPress themes and vanilla JS components.",
+            tags: [],
+        },
+        {
+            title: "Intern",
+            date: "2015",
+            desc: "First exposure to production environments. Assisted senior devs with QA, bug fixes, and documentation.",
+            tags: [],
+        },
+    ];
+
     return (
-        <section className="relative min-h-screen flex flex-col py-12 px-6 md:px-12 lg:px-24 bg-background-dark">
+        <section id="about" className="relative min-h-screen flex flex-col py-12 px-6 md:px-12 lg:px-24 bg-background-dark">
             {/* Hidden dummy to force Tailwind v4 to generate animate-fade-in-up */}
             <div className="hidden animate-fade-in-up"></div>
             {/* Background Effects */}
@@ -62,15 +97,13 @@ export default function About() {
                     <div className="flex flex-wrap items-center gap-6 pt-4">
                         <button className="group flex items-center gap-3 px-6 py-3 border border-primary/50 text-primary rounded hover:bg-primary/10 transition-all duration-300">
                             <span className="font-medium">Download Resume</span>
-                            <span className="material-symbols-outlined group-hover:translate-y-1 transition-transform">
-                                download
-                            </span>
+                            <MdDownload className="group-hover:translate-y-1 transition-transform" />
                         </button>
 
                         <div className="flex items-center gap-4">
                             <a
                                 className="w-10 h-10 rounded flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                                href="#"
+                                href="https://www.github.com/Ngangah-01"
                             >
                                 {/* GitHub SVG */}
                                 <svg
@@ -88,7 +121,8 @@ export default function About() {
                             </a>
                             <a
                                 className="w-10 h-10 rounded flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                                href="#"
+                                href="https://www.linkedin.com/in/ngangahillary254/"
+                                
                             >
                                 {/* LinkedIn SVG */}
                                 <svg
@@ -108,51 +142,70 @@ export default function About() {
                     </div>
                 </div>
 
-                {/* Right Column - Clean Subtle Timeline */}
-                <div className="lg:col-span-7 relative pl-0 lg:pl-10">
+                {/* Mobile Timeline - Horizontal Scroll */}
+                <div className="lg:hidden relative">
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="text-xs font-bold tracking-widest uppercase text-primary">Roadmap</div>
+                        <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
+                    </div>
+                    <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
+                        {timelineItems.map((job, index) => (
+                            <div
+                                key={index}
+                                className="snap-center shrink-0 w-[80vw] max-w-sm"
+                            >
+                                <div className="relative rounded-3xl p-6 min-h-[220px] flex flex-col bg-[rgba(22,32,21,0.5)] border border-white/10 backdrop-blur-md shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)] overflow-hidden">
+                                    <div className="absolute inset-0 pointer-events-none">
+                                        <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 blur-2xl rounded-full" />
+                                        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+                                    </div>
+                                    <div className="relative z-10">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className={`text-[10px] font-mono px-2 py-1 rounded ${job.current ? "text-primary bg-primary/20" : "text-gray-500 bg-white/5"}`}>
+                                                {job.date}
+                                            </span>
+                                            {job.current && (
+                                                <span className="text-[10px] text-primary font-bold tracking-widest uppercase">
+                                                    Current
+                                                </span>
+                                            )}
+                                        </div>
+                                        <h3 className="text-lg font-bold text-white mb-2">{job.title}</h3>
+                                        <p className="text-sm text-gray-400 leading-relaxed mb-4">{job.desc}</p>
+                                        {job.tags.length > 0 && (
+                                            <div className="flex flex-wrap gap-2 mt-auto">
+                                                {job.tags.map((tag) => (
+                                                    <span key={tag} className="text-[10px] text-gray-300 bg-[#1e2b1d] px-3 py-1.5 rounded border border-white/5">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/30">
+                        <span className="h-px w-8 bg-white/10" />
+                        Swipe
+                        <span className="h-px w-8 bg-white/10" />
+                    </div>
+                </div>
+
+                {/* Right Column - Clean Subtle Timeline (Desktop) */}
+                <div className="hidden lg:block lg:col-span-7 relative pl-0 lg:pl-10">
                     <div className="absolute -top-10 right-0 w-24 h-24 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-xl animate-float opacity-50"></div>
                     <div className="relative h-[600px]">
                         <div className="absolute bottom-4 left-0 right-0 z-20 flex items-end justify-center pointer-events-none opacity-80">
-                            <span className="material-symbols-outlined text-primary/50 animate-bounce text-sm">keyboard_double_arrow_down</span>
+                            <MdKeyboardDoubleArrowDown className="text-primary/50 animate-bounce text-sm" />
                         </div>
                         <div className="h-full overflow-y-auto px-6 py-4 [mask-image:linear-gradient(to_bottom,transparent,black_5%,black_95%,transparent)]">
                             {/* Vertical Line */}
                             <div className="absolute left-[38px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-primary/30 to-transparent z-0"></div>
 
                             {/* Timeline Items */}
-                            {[
-                                {
-                                    title: "Senior Frontend Engineer",
-                                    date: "2021 - Present",
-                                    desc: "Leading the frontend architecture for next-gen SaaS platforms. Specialized in micro-frontends and high-performance rendering.",
-                                    tags: ["React", "TypeScript", "Three.js"],
-                                    current: true,
-                                },
-                                {
-                                    title: "Creative Developer",
-                                    date: "2018 - 2021",
-                                    desc: "Collaborated with design teams to bring award-winning websites to life. Focused on interaction design and WebGL.",
-                                    tags: ["Stitch","Figma"],
-                                },
-                                {
-                                    title: "Junior Web Dev",
-                                    date: "2016 - 2018",
-                                    desc: "Started the journey building responsive layouts and mastering the fundamentals of the web.",
-                                    tags: [],
-                                },
-                                {
-                                    title: "Freelance Developer",
-                                    date: "2015 - 2016",
-                                    desc: "Worked with small businesses to create their first online presence, customizing WordPress themes and vanilla JS components.",
-                                    tags: [],
-                                },
-                                {
-                                    title: "Intern",
-                                    date: "2015",
-                                    desc: "First exposure to production environments. Assisted senior devs with QA, bug fixes, and documentation.",
-                                    tags: [],
-                                },
-                            ].map((job, index) => (
+                            {timelineItems.map((job, index) => (
                                 <div
                                     key={index}
                                     className="relative mb-12 group stagger "
@@ -179,7 +232,7 @@ export default function About() {
                                     <div className="ml-16">
                                         <div className={`
         bg-[rgba(22,32,21,0.4)] backdrop-blur-md border border-[rgba(60,249,26,0.1)]
-        p-6 rounded-lg transition-all duration-300
+        p-6 rounded-lg transition-all duration-300 min-h-[180px] flex flex-col
         ${job.current
                                                 ? 'border-l-4 border-l-primary'
                                                 : 'border-l-2 border-l-transparent group-hover:border-l-primary'
@@ -205,7 +258,7 @@ export default function About() {
                                                 {job.desc}
                                             </p>
                                             {job.tags.length > 0 && (
-                                                <div className="flex gap-2 flex-wrap">
+                                                <div className="flex gap-2 flex-wrap mt-auto">
                                                     {job.tags.map((tag) => (
                                                         <span key={tag} className="text-xs text-gray-300 bg-[#1e2b1d] px-3 py-1.5 rounded border border-white/5">
                                                             {tag}

@@ -1,4 +1,15 @@
 import { useEffect, useRef } from 'react';
+import {
+    MdAnalytics,
+    MdArrowDownward,
+    MdArrowForward,
+    MdArrowRightAlt,
+    MdDashboard,
+    MdNorthEast,
+    MdSmartphone,
+    MdTouchApp,
+    MdViewInAr,
+} from 'react-icons/md';
 
 export default function Projects() {
     const revealRefs = useRef([]);
@@ -29,7 +40,7 @@ export default function Projects() {
     };
 
     return (
-        <section className="relative min-h-screen bg-background-dark py-12 px-6 md:px-10 lg:px-24 overflow-hidden">
+        <section id="projects" className="relative min-h-screen bg-background-dark py-12 px-6 md:px-10 lg:px-24 overflow-hidden">
             {/* Background Blobs */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-[20%] -left-[10%] text-[20vw] font-bold text-white/[0.02] leading-none select-none font-display tracking-tighter whitespace-nowrap">
@@ -88,7 +99,7 @@ export default function Projects() {
                                         <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded-full">Web App</span>
                                         <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/60 bg-white/5 border border-white/10 rounded-full">AI/ML</span>
                                     </div>
-                                    <span className="material-symbols-outlined text-white/40">dashboard</span>
+                                    <MdDashboard className="text-white/40" />
                                 </div>
                                 <h3 className="text-3xl font-bold text-white mb-2">CryptoDash AI</h3>
                                 <p className="text-white/70 text-sm mb-6">A comprehensive financial dashboard integrating predictive machine learning models to forecast market trends. Features real-time WebSocket data streams.</p>
@@ -100,14 +111,14 @@ export default function Projects() {
                                     </div>
                                     <button className="flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors group/btn">
                                         View Case Study
-                                        <span className="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                                        <MdArrowForward className="text-[18px] group-hover/btn:translate-x-1 transition-transform" />
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                             <button className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center hover:bg-primary hover:scale-110 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                                <span className="material-symbols-outlined text-[24px]">north_east</span>
+                                <MdNorthEast className="text-[24px]" />
                             </button>
                         </div>
                     </article>
@@ -122,7 +133,7 @@ export default function Projects() {
                                     <span className="text-white/40 text-xs">Mobile App</span>
                                 </div>
                                 <button className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/10 text-white">
-                                    <span className="material-symbols-outlined text-[20px]">smartphone</span>
+                                    <MdSmartphone className="text-[20px]" />
                                 </button>
                             </div>
                             <div className="relative mx-auto w-[280px] h-[580px] bg-black rounded-[40px] overflow-hidden border-8 border-[#222] shadow-2xl group-hover:-translate-y-4 transition-transform">
@@ -130,7 +141,7 @@ export default function Projects() {
                                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[30%] h-1 bg-[#222] rounded-full"></div>
                                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOtXjQMYGOQ0Icdh4YbitLSNZVWsxaOHW5yPpn1Z9rv9R3IWmGsPE0M8Fury2E48XtqMKjqd02oitF6ujmmMknVpxJVdUhdURDfEtiEhPrVMdZaA-oypczV31DQ24119HcD144TnGRWo1Zi4M_hrwYTIw31WSvA-kygAiAwZ-58BH_6a7Ox1ijTV3Mip9ykwLqRHkL1vANqVF0BYuM6CqS7pxh7ejJY__ulbfjLv4F6mDVpgy98Atwfu-KvtAyM3yKdQl0EnXzLNQ" alt="Nexus App" className="w-full h-full object-cover" />
                                 <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-6">
-                                    <span className="material-symbols-outlined text-4xl text-primary mb-2">touch_app</span>
+                                    <MdTouchApp className="text-4xl text-primary mb-2" />
                                     <h4 className="text-xl font-bold text-white">Interactive Preview</h4>
                                     <p className="text-white/60 text-xs mt-2 mb-4">React Native • GraphQL</p>
                                     <button className="px-4 py-2 bg-white text-black text-xs font-bold uppercase rounded-lg hover:bg-primary transition-colors">
@@ -149,7 +160,7 @@ export default function Projects() {
                         <div className="absolute inset-0 p-6 flex flex-col justify-end z-20">
                             <div className="mb-auto flex justify-between items-start">
                                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary backdrop-blur-md">
-                                    <span className="material-symbols-outlined">analytics</span>
+                                    <MdAnalytics />
                                 </div>
                                 <span className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[10px] text-white/50 uppercase font-mono">v2.4.0</span>
                             </div>
@@ -161,7 +172,7 @@ export default function Projects() {
                                     <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] text-white/70">Pandas</span>
                                 </div>
                                 <button className="text-xs font-bold text-white flex items-center gap-1 hover:text-primary">
-                                    Details <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                                    Details <MdArrowForward className="text-[14px]" />
                                 </button>
                             </div>
                         </div>
@@ -185,7 +196,7 @@ export default function Projects() {
                                 </div>
                             </div>
                             <button className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white text-white hover:text-black flex items-center justify-center transition-colors backdrop-blur-sm">
-                                <span className="material-symbols-outlined">view_in_ar</span>
+                                <MdViewInAr />
                             </button>
                         </div>
                     </article>
@@ -242,13 +253,23 @@ export default function Projects() {
                 {/* CTA */}
                 <div className="mt-20 text-center">
                     <p className="text-white/40 text-sm font-mono tracking-widest uppercase mb-4">Exploration continues</p>
-                    <button className="group relative px-8 py-3 rounded-full bg-transparent border border-white/20 hover:border-primary/50 text-white transition-all duration-300 overflow-hidden">
+                    <a
+                        href="https://github.com/Ngangah-01"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative inline-flex px-8 py-3 rounded-full bg-transparent border border-white/20 hover:border-primary/50 text-white transition-all duration-300 overflow-hidden"
+                    >
                         <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                         <span className="relative flex items-center gap-3 font-bold">
-                            View Complete Archive
-                            <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+                            <span className="transition-opacity duration-200 group-hover:opacity-0">
+                                View Complete Archive
+                            </span>
+                            <span className="absolute left-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                                View on GitHub
+                            </span>
+                            <MdArrowRightAlt className="group-hover:translate-x-1 transition-transform" />
                         </span>
-                    </button>
+                    </a>
                 </div>
             </div>
             </div>
@@ -257,7 +278,7 @@ export default function Projects() {
             <div className="fixed bottom-8 right-8 z-50 animate-float hidden lg:block">
                 <button className="group flex items-center gap-3 bg-black/80 backdrop-blur-xl border border-white/10 pr-6 pl-2 py-2 rounded-full shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:border-primary/50 transition-all">
                     <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-colors text-white border border-white/10">
-                        <span className="material-symbols-outlined text-[20px]">arrow_downward</span>
+                        <MdArrowDownward className="text-[20px]" />
                     </div>
                     <div className="flex flex-col items-start">
                         <span className="text-[10px] text-white/40 uppercase tracking-wider font-bold">Scroll</span>

@@ -1,6 +1,57 @@
+import {
+    MdCloudOff,
+    MdGridView,
+    MdInstallMobile,
+    MdMemory,
+    MdTerminal,
+} from "react-icons/md";
+import serviceUi from "../assets/service-ui.svg";
+import serviceWeb from "../assets/service-web.svg";
+import serviceMobile from "../assets/service-mobile.svg";
+import serviceCloud from "../assets/service-cloud.svg";
+import serviceAutomation from "../assets/service-automation.svg";
+
 const Services = () => {
+    const mobileServices = [
+        {
+            title: "UI/UX Architecture",
+            meta: "01 / System Design",
+            desc: "High-fidelity interfaces and design systems with strong user flow.",
+            Icon: MdGridView,
+            image: serviceUi,
+        },
+        {
+            title: "Web Forge",
+            meta: "02 / Full Stack",
+            desc: "Modern frameworks for scalable, high-performance web apps.",
+            Icon: MdTerminal,
+            image: serviceWeb,
+        },
+        {
+            title: "Mobile Core",
+            meta: "03 / Native Feel",
+            desc: "Cross-platform mobile experiences for iOS and Android.",
+            Icon: MdInstallMobile,
+            image: serviceMobile,
+        },
+        {
+            title: "Cloud Ops",
+            meta: "04 / Reliability",
+            desc: "Infra, Docker orchestration, and automated pipelines.",
+            Icon: MdCloudOff,
+            image: serviceCloud,
+        },
+        {
+            title: "Automation",
+            meta: "05 / AI & Data",
+            desc: "Custom AI integrations and data pipelines at scale.",
+            Icon: MdMemory,
+            image: serviceAutomation,
+        },
+    ];
+
     return (
-        <section className="relative py-24 md:py-32 px-6 overflow-hidden bg-background-dark">
+        <section id="services" className="relative py-12 md:py-12 px-6 overflow-hidden bg-background-dark">
             {/* Ambient Background */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[120px] rounded-full" />
@@ -34,8 +85,52 @@ const Services = () => {
                     </p>
                 </header>
 
+                {/* Mobile Services – cinematic swipe deck */}
+                <div className="md:hidden">
+                    <div className="flex items-center gap-3 mb-4">
+                        <span className="text-xs font-bold tracking-widest uppercase text-primary">Service Matrix</span>
+                        <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
+                    </div>
+                    <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scrollbar-hide">
+                        {mobileServices.map(({ title, meta, desc, Icon, image }) => (
+                            <article
+                                key={title}
+                                className="snap-center shrink-0 w-[82vw] max-w-sm"
+                            >
+                                <div className="relative h-[420px] rounded-3xl overflow-hidden border border-white/10 bg-black/60 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.85)]">
+                                    <div
+                                        className="absolute inset-0 bg-cover bg-center"
+                                        style={{ backgroundImage: `url(${image})` }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(60,249,26,0.25),transparent_45%)] opacity-70" />
+                                    <div className="relative z-10 h-full p-6 flex flex-col">
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-[10px] font-mono tracking-widest text-white/60">
+                                                {meta}
+                                            </span>
+                                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary">
+                                                <Icon className="text-2xl" />
+                                            </div>
+                                        </div>
+                                        <div className="mt-auto">
+                                            <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
+                                            <p className="text-sm text-white/70 leading-relaxed">{desc}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                    <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/30">
+                        <span className="h-px w-8 bg-white/10" />
+                        Swipe
+                        <span className="h-px w-8 bg-white/10" />
+                    </div>
+                </div>
+
                 {/* Services Grid */}
-                <div className="grid grid-cols-12 gap-6">
+                <div className="hidden md:grid grid-cols-12 gap-6">
                     {/* 01 */}
                     <div className="col-span-12 lg:col-span-7 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group">
                         <div className="absolute inset-0 bg-circuit opacity-20" />
@@ -44,9 +139,7 @@ const Services = () => {
                         <div className="relative z-10 flex flex-col h-full justify-between">
                             <div>
                                 <div className="mb-12 inline-block">
-                                    <span className="material-symbols-outlined text-primary text-5xl neon-glow">
-                                        grid_view
-                                    </span>
+                                    <MdGridView className="text-primary text-5xl neon-glow" />
                                 </div>
 
                                 <h3 className="text-3xl font-bold text-white mb-6 font-mono tracking-tight group-hover:text-primary transition-colors">
@@ -81,9 +174,7 @@ const Services = () => {
 
                         <div className="relative z-10">
                             <div className="mb-12 inline-block">
-                                <span className="material-symbols-outlined text-primary text-5xl neon-glow">
-                                    terminal
-                                </span>
+                                <MdTerminal className="text-primary text-5xl neon-glow" />
                             </div>
 
                             <h3 className="text-3xl font-bold text-white mb-6 font-mono tracking-tight group-hover:text-primary transition-colors">
@@ -113,9 +204,7 @@ const Services = () => {
                         <div className="absolute inset-0 bg-circuit opacity-10" />
                         <div className="relative z-10">
                             <div className="mb-12 inline-block">
-                                <span className="material-symbols-outlined text-primary text-5xl neon-glow">
-                                    install_mobile
-                                </span>
+                                <MdInstallMobile className="text-primary text-5xl neon-glow" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-tight">
                                 03. Mobile Core
@@ -132,9 +221,7 @@ const Services = () => {
                         <div className="absolute inset-0 bg-circuit opacity-10" />
                         <div className="relative z-10">
                             <div className="mb-12 inline-block">
-                                <span className="material-symbols-outlined text-primary text-5xl neon-glow">
-                                    cloud_off
-                                </span>
+                                <MdCloudOff className="text-primary text-5xl neon-glow" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-tight">
                                 04. Cloud Ops
@@ -151,9 +238,7 @@ const Services = () => {
                         <div className="absolute inset-0 bg-circuit opacity-10" />
                         <div className="relative z-10">
                             <div className="mb-12 inline-block">
-                                <span className="material-symbols-outlined text-primary text-5xl neon-glow">
-                                    memory
-                                </span>
+                                <MdMemory className="text-primary text-5xl neon-glow" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-4 font-mono tracking-tight">
                                 05. Automation
@@ -193,10 +278,12 @@ const Services = () => {
                             </div>
 
                             <div className="flex flex-col gap-4 w-full md:w-auto">
-                                <button className="relative px-10 py-5 bg-primary text-black font-mono font-bold uppercase rounded-xl hover:shadow-[0_0_40px_rgba(57,255,20,0.5)] transition">
+                                <button className="relative px-10 py-5 bg-primary text-black font-mono font-bold uppercase rounded-xl hover:shadow-[0_0_40px_rgba(57,255,20,0.5)] transition"
+                                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} >
                                     [ GET_IN_TOUCH ]
                                 </button>
-                                <button className="px-10 py-5 border border-primary/30 text-primary font-mono font-bold uppercase rounded-xl hover:bg-primary/5">
+                                <button className="px-10 py-5 border border-primary/30 text-primary font-mono font-bold uppercase rounded-xl hover:bg-primary/5"
+                                onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
                                     VIEW_NODES
                                 </button>
                             </div>
