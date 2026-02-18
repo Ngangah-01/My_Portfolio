@@ -245,6 +245,33 @@ section{
   scroll-margin-top: 80px; /* Adjust based on header height */
 }
 
+.scroll-reveal-section {
+  opacity: 0;
+  transform: translate3d(0, 56px, 0) scale(0.99);
+  filter: blur(4px);
+  transition:
+    opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+.scroll-reveal-section.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-section,
+  .scroll-reveal-section.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
 /* ===== Liquid Glass Pill (Cleaner / More Transparent / More “Liquid”) ===== */
 .liquid-pill {
   position: absolute;

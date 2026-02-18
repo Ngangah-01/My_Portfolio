@@ -2,7 +2,7 @@ import { MdCall, MdMail, MdPinDrop, MdSend } from "react-icons/md";
 
 export default function Contact() {
     return (
-        <section id="contact" className="relative bg-background-dark py-12 px-6 lg:py-24 overflow-hidden">
+        <section id="contact" className="scroll-reveal-section relative bg-background-dark py-12 px-6 lg:py-24 overflow-hidden">
             {/* Background Glows */}
             <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
                 <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]"></div>
@@ -174,3 +174,4 @@ export default function Contact() {
         </section>
     );
 }
+

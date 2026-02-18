@@ -111,7 +111,7 @@ export default function PortfolioHero() {
     }, []);
 
     return (
-        <section id="home">
+        <section id="home" className="scroll-reveal-section is-visible">
             {/* Background Effects – suppressed greens, reduced blur/opacity for darker feel */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className={`absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/5 rounded-full ${effectsReady ? 'blur-[80px]' : 'blur-0'} animate-pulse`}></div>
@@ -342,3 +342,4 @@ export default function PortfolioHero() {
         </section>
     );
 }
+

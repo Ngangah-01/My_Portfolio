@@ -27,7 +27,7 @@ import {
 
 export default function Skills() {
     return (
-        <section id="skills" className="relative min-h-screen flex flex-col py-12 px-6 md:px-10 lg:px-24 bg-background-dark">
+        <section id="skills" className="scroll-reveal-section relative min-h-screen flex flex-col py-12 px-6 md:px-10 lg:px-24 bg-background-dark">
             {/* Background Effects */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute -top-20 -left-20 text-[20vw] font-bold text-primary opacity-[0.02] leading-none whitespace-nowrap select-none">
@@ -453,3 +453,4 @@ export default function Skills() {
         </section>
     );
 }
+

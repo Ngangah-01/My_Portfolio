@@ -25,6 +25,29 @@ function App() {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
 
+  useEffect(() => {
+    const sections = document.querySelectorAll(".scroll-reveal-section");
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: "0px 0px -12% 0px",
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
  return (
     <>
       <Header />

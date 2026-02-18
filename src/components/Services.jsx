@@ -51,7 +51,7 @@ const Services = () => {
     ];
 
     return (
-        <section id="services" className="relative py-12 md:py-12 px-6 overflow-hidden bg-background-dark">
+        <section id="services" className="scroll-reveal-section relative py-12 md:py-12 px-6 overflow-hidden bg-background-dark">
             {/* Ambient Background */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[120px] rounded-full" />
@@ -296,3 +296,4 @@ const Services = () => {
 };
 
 export default Services;
+

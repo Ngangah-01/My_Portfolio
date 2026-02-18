@@ -40,7 +40,7 @@ export default function Projects() {
     };
 
     return (
-        <section id="projects" className="relative min-h-screen bg-background-dark py-12 px-6 md:px-10 lg:px-24 overflow-hidden">
+        <section id="projects" className="scroll-reveal-section relative min-h-screen bg-background-dark py-12 px-6 md:px-10 lg:px-24 overflow-hidden">
             {/* Background Blobs */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-[20%] -left-[10%] text-[20vw] font-bold text-white/[0.02] leading-none select-none font-display tracking-tighter whitespace-nowrap">
@@ -289,3 +289,4 @@ export default function Projects() {
         </section>
     );
 }
+

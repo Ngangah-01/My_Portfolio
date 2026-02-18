@@ -47,7 +47,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="relative min-h-screen flex flex-col py-12 px-6 md:px-12 lg:px-24 bg-background-dark">
+        <section id="about" className="scroll-reveal-section relative min-h-screen flex flex-col py-12 px-6 md:px-12 lg:px-24 bg-background-dark">
             {/* Hidden dummy to force Tailwind v4 to generate animate-fade-in-up */}
             <div className="hidden animate-fade-in-up"></div>
             {/* Background Effects */}
@@ -279,3 +279,4 @@ export default function About() {
         </section>
     );
 }
+
