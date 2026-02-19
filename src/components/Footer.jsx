@@ -1,7 +1,27 @@
-import React from "react";
 import { MdArrowUpward, MdCall, MdLink, MdMail } from "react-icons/md";
 
 const Footer = () => {
+    const handleNav = (item) => {
+        const sectionMap = {
+            About: "about",
+            Services: "services",
+            Projects: "projects",
+        };
+
+        if (item === "Testimonials" || item === "Blog") {
+            alert("Coming sooon");
+            return;
+        }
+
+        const id = sectionMap[item];
+        if (!id) return;
+
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <footer className="relative z-10 mt-0 border-t border-white/10 bg-black/80 backdrop-blur-2xl animate-fade-in">
             <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20 pt-20 pb-10">
@@ -49,7 +69,7 @@ const Footer = () => {
                             <div className="flex items-center gap-3 group">
                                 <MdMail className="text-primary text-xl drop-shadow-[0_0_5px_rgba(60,249,26,0.4)]" />
                                 <span className="text-gray-400 text-sm group-hover:text-primary transition-colors">
-                                    ngangah@dev.com
+                                    ngangahillary84@gmail.com
                                 </span>
                             </div>
                         </div>
@@ -64,13 +84,13 @@ const Footer = () => {
                             {["About", "Services", "Projects", "Testimonials", "Blog"].map(
                                 (item) => (
                                     <li key={item}>
-                                        <a
-                                            href="#"
-                                            className="flex items-center gap-2 text-gray-400 hover:text-primary text-sm transition-colors group"
+                                        <button
+                                            onClick={() => handleNav(item)}
+                                            className="flex items-center gap-2 text-gray-400 hover:text-primary text-sm transition-colors group bg-none border-none cursor-pointer p-0"
                                         >
                                             <span className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
                                             {item}
-                                        </a>
+                                        </button>
                                     </li>
                                 )
                             )}
@@ -86,13 +106,12 @@ const Footer = () => {
                             {["Support", "Terms & Conditions", "Privacy Policy"].map(
                                 (item) => (
                                     <li key={item}>
-                                        <a
-                                            href="#"
-                                            className="flex items-center gap-2 text-gray-400 hover:text-primary text-sm transition-colors group"
+                                        <button
+                                            className="flex items-center gap-2 text-gray-400 hover:text-primary text-sm transition-colors group bg-none border-none cursor-pointer p-0"
                                         >
                                             <span className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
                                             {item}
-                                        </a>
+                                        </button>
                                     </li>
                                 )
                             )}
@@ -107,9 +126,9 @@ const Footer = () => {
 
                         <ul className="flex flex-col gap-4">
                             {[
-                                { name: "LinkedIn", href: "#" },
-                                { name: "Twitter / X", href: "#" },
-                                { name: "GitHub", href: "#" },
+                                { name: "LinkedIn", href: "https://www.linkedin.com/in/ngangahillary254/" },
+                                { name: "Instagram / X", href: "https://www.instagram.com/_code.nerd/" },
+                                { name: "GitHub", href: "https://github.com/Ngangah-01" },
                             ].map((social) => (
                                 <li key={social.name}>
                                     <a
