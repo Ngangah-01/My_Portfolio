@@ -99,9 +99,9 @@ export default function Skills() {
                             <h3 className="text-2xl font-bold text-white tracking-wide">Frontend Domain</h3>
                             <div className="h-[1px] bg-gradient-to-r from-blue-400/50 to-transparent flex-1 ml-4"></div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+                        <div className="skills-reveal-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                             {/* Web Fundamentals */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdHtml className="text-6xl" />
                                 </div>
@@ -132,7 +132,7 @@ export default function Skills() {
                             </div>
 
                             {/* Web Frameworks */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdLayers className="text-6xl" />
                                 </div>
@@ -163,7 +163,7 @@ export default function Skills() {
                             </div>
 
                             {/* Mobile Solutions */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdSmartphone className="text-6xl" />
                                 </div>
@@ -202,9 +202,9 @@ export default function Skills() {
                             <h3 className="text-2xl font-bold text-white tracking-wide">Backend & Intelligence</h3>
                             <div className="h-[1px] bg-gradient-to-r from-emerald-400/50 to-transparent flex-1 ml-4"></div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        <div className="skills-reveal-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                             {/* Backend Engineering */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdTerminal className="text-6xl" />
                                 </div>
@@ -235,7 +235,7 @@ export default function Skills() {
                             </div>
 
                             {/* MERN Stack - Highlighted as Expert */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden ring-1 ring-primary/40 bg-primary/5">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden ring-1 ring-primary/40 bg-primary/5">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdIntegrationInstructions className="text-6xl" />
                                 </div>
@@ -266,7 +266,7 @@ export default function Skills() {
                             </div>
 
                             {/* API Architecture */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdApi className="text-6xl" />
                                 </div>
@@ -297,7 +297,7 @@ export default function Skills() {
                             </div>
 
                             {/* Data Science & ML */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdInsights className="text-6xl" />
                                 </div>
@@ -336,9 +336,9 @@ export default function Skills() {
                             <h3 className="text-2xl font-bold text-white tracking-wide">Infrastructure & Ops</h3>
                             <div className="h-[1px] bg-gradient-to-r from-purple-400/50 to-transparent flex-1 ml-4"></div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+                        <div className="skills-reveal-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                             {/* Database Systems */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdStorage className="text-6xl" />
                                 </div>
@@ -369,7 +369,7 @@ export default function Skills() {
                             </div>
 
                             {/* DevOps */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdCloudCircle className="text-6xl" />
                                 </div>
@@ -400,7 +400,7 @@ export default function Skills() {
                             </div>
 
                             {/* Cloud Deployment */}
-                            <div className="glass-card glass-card-hover rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
+                            <div className="glass-card glass-card-hover scroll-reveal-item skills-reveal-card rounded-xl p-6 flex flex-col gap-4 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <MdRocketLaunch className="text-6xl" />
                                 </div>
@@ -453,4 +453,5 @@ export default function Skills() {
         </section>
     );
 }
+
 

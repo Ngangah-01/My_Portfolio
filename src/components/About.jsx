@@ -1,17 +1,6 @@
-import { useEffect } from "react";
 import { MdDownload, MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 export default function About() {
-    // Trigger stagger animations on mount (fade-in-up with delays)
-    useEffect(() => {
-        const items = document.querySelectorAll(".stagger");
-        items.forEach((item, index) => {
-            item.style.animationDelay = `${(index + 1) * 200}ms`;
-            item.classList.add("opacity-0", "animate-fade-in-up");
-            item.classList.remove("opacity-0");
-        });
-    }, []);
-
     const timelineItems = [
         {
             title: "Senior Frontend Engineer",
@@ -48,8 +37,6 @@ export default function About() {
 
     return (
         <section id="about" className="scroll-reveal-section relative min-h-screen flex flex-col py-12 px-6 md:px-12 lg:px-24 bg-background-dark">
-            {/* Hidden dummy to force Tailwind v4 to generate animate-fade-in-up */}
-            <div className="hidden animate-fade-in-up"></div>
             {/* Background Effects */}
             <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(60,249,26,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(60,249,26,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30"></div>
@@ -152,7 +139,10 @@ export default function About() {
                         {timelineItems.map((job, index) => (
                             <div
                                 key={index}
-                                className="snap-center shrink-0 w-[80vw] max-w-sm"
+                                className={`snap-center shrink-0 w-[80vw] max-w-sm scroll-reveal-item ${
+                                    index % 2 === 0 ? "reveal-zoom" : "reveal-rise"
+                                }`}
+                                style={{ "--reveal-delay": `${index * 90}ms` }}
                             >
                                 <div className="relative rounded-3xl p-6 min-h-[220px] flex flex-col bg-[rgba(22,32,21,0.5)] border border-white/10 backdrop-blur-md shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)] overflow-hidden">
                                     <div className="absolute inset-0 pointer-events-none">
@@ -208,7 +198,10 @@ export default function About() {
                             {timelineItems.map((job, index) => (
                                 <div
                                     key={index}
-                                    className="relative mb-12 group stagger "
+                                    className={`relative mb-12 group scroll-reveal-item about-timeline-card ${
+                                        index % 2 === 0 ? "reveal-slide-right" : "reveal-slide-left"
+                                    }`}
+                                    style={{ "--reveal-delay": `${index * 80}ms` }}
                                 >
                                     {/* Dot - Pulsating only for current job */}
                                     <div className="absolute left-0 top-0 w-20 flex justify-center h-full">

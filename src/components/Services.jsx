@@ -92,10 +92,13 @@ const Services = () => {
                         <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
                     </div>
                     <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scrollbar-hide">
-                        {mobileServices.map(({ title, meta, desc, Icon, image }) => (
+                        {mobileServices.map(({ title, meta, desc, Icon, image }, index) => (
                             <article
                                 key={title}
-                                className="snap-center shrink-0 w-[82vw] max-w-sm"
+                                className={`snap-center shrink-0 w-[82vw] max-w-sm scroll-reveal-item ${
+                                    index % 2 === 0 ? "reveal-zoom" : "reveal-rise"
+                                }`}
+                                style={{ "--reveal-delay": `${index * 80}ms` }}
                             >
                                 <div className="relative h-[420px] rounded-3xl overflow-hidden border border-white/10 bg-black/60 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.85)]">
                                     <div
@@ -132,7 +135,10 @@ const Services = () => {
                 {/* Services Grid */}
                 <div className="hidden md:grid grid-cols-12 gap-6">
                     {/* 01 */}
-                    <div className="col-span-12 lg:col-span-7 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group">
+                    <div
+                        className="col-span-12 lg:col-span-7 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group scroll-reveal-item reveal-slide-right"
+                        style={{ "--reveal-delay": "20ms" }}
+                    >
                         <div className="absolute inset-0 bg-circuit opacity-20" />
                         <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-[60px] slow-pulse" />
 
@@ -168,7 +174,10 @@ const Services = () => {
                     </div>
 
                     {/* 02 */}
-                    <div className="col-span-12 md:col-span-6 lg:col-span-5 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group">
+                    <div
+                        className="col-span-12 md:col-span-6 lg:col-span-5 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group scroll-reveal-item reveal-slide-left"
+                        style={{ "--reveal-delay": "90ms" }}
+                    >
                         <div className="absolute inset-0 bg-circuit opacity-10" />
                         <div className="absolute top-10 right-10 w-32 h-32 bg-primary/5 rounded-full blur-[40px] slow-pulse" />
 
@@ -200,7 +209,10 @@ const Services = () => {
                     </div>
 
                     {/* 03 */}
-                    <div className="col-span-12 md:col-span-6 lg:col-span-4 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group">
+                    <div
+                        className="col-span-12 md:col-span-6 lg:col-span-4 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group scroll-reveal-item reveal-rise"
+                        style={{ "--reveal-delay": "40ms" }}
+                    >
                         <div className="absolute inset-0 bg-circuit opacity-10" />
                         <div className="relative z-10">
                             <div className="mb-12 inline-block">
@@ -217,7 +229,10 @@ const Services = () => {
                     </div>
 
                     {/* 04 */}
-                    <div className="col-span-12 md:col-span-7 lg:col-span-4 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group">
+                    <div
+                        className="col-span-12 md:col-span-7 lg:col-span-4 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group scroll-reveal-item reveal-zoom"
+                        style={{ "--reveal-delay": "110ms" }}
+                    >
                         <div className="absolute inset-0 bg-circuit opacity-10" />
                         <div className="relative z-10">
                             <div className="mb-12 inline-block">
@@ -234,7 +249,10 @@ const Services = () => {
                     </div>
 
                     {/* 05 */}
-                    <div className="col-span-12 md:col-span-5 lg:col-span-4 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group">
+                    <div
+                        className="col-span-12 md:col-span-5 lg:col-span-4 glass-morphic parallax-tilt rounded-3xl p-10 relative overflow-hidden group scroll-reveal-item reveal-slide-right"
+                        style={{ "--reveal-delay": "180ms" }}
+                    >
                         <div className="absolute inset-0 bg-circuit opacity-10" />
                         <div className="relative z-10">
                             <div className="mb-12 inline-block">

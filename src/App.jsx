@@ -27,9 +27,10 @@ function App() {
 
   useEffect(() => {
     const sections = document.querySelectorAll(".scroll-reveal-section");
-    if (!sections.length) return;
+    const revealItems = document.querySelectorAll(".scroll-reveal-item");
+    if (!sections.length && !revealItems.length) return;
 
-    const observer = new IntersectionObserver(
+    const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -43,9 +44,46 @@ function App() {
       }
     );
 
-    sections.forEach((section) => observer.observe(section));
+    const itemObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            itemObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.01,
+        rootMargin: "0px 0px -5% 0px",
+      }
+    );
 
-    return () => observer.disconnect();
+    const revealIfInView = () => {
+      revealItems.forEach((item) => {
+        if (item.classList.contains("is-visible")) return;
+        const rect = item.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+        if (inView) {
+          item.classList.add("is-visible");
+          itemObserver.unobserve(item);
+        }
+      });
+    };
+
+    sections.forEach((section) => sectionObserver.observe(section));
+    revealItems.forEach((item) => itemObserver.observe(item));
+    revealIfInView();
+
+    window.addEventListener("scroll", revealIfInView, { passive: true });
+    window.addEventListener("resize", revealIfInView);
+
+    return () => {
+      sectionObserver.disconnect();
+      itemObserver.disconnect();
+      window.removeEventListener("scroll", revealIfInView);
+      window.removeEventListener("resize", revealIfInView);
+    };
   }, []);
 
  return (

@@ -262,9 +262,62 @@ section{
   filter: blur(0);
 }
 
+.scroll-reveal-item {
+  --reveal-delay: 0ms;
+  --reveal-transform: translate3d(0, 34px, 0) scale(0.985);
+  opacity: 0;
+  transform: var(--reveal-transform);
+  filter: blur(2px);
+  transition:
+    opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 680ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 680ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay);
+  will-change: opacity, transform, filter;
+}
+
+.scroll-reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+.reveal-rise {
+  --reveal-transform: translate3d(0, 40px, 0) scale(0.985);
+}
+
+.reveal-slide-left {
+  --reveal-transform: translate3d(-40px, 20px, 0) scale(0.985);
+}
+
+.reveal-slide-right {
+  --reveal-transform: translate3d(40px, 20px, 0) scale(0.985);
+}
+
+.reveal-zoom {
+  --reveal-transform: translate3d(0, 24px, 0) scale(0.94);
+}
+
+.skills-reveal-grid > .skills-reveal-card:nth-child(3n + 1) {
+  --reveal-transform: translate3d(-30px, 34px, 0) scale(0.985);
+  --reveal-delay: 30ms;
+}
+
+.skills-reveal-grid > .skills-reveal-card:nth-child(3n + 2) {
+  --reveal-transform: translate3d(0, 42px, 0) scale(0.97);
+  --reveal-delay: 90ms;
+}
+
+.skills-reveal-grid > .skills-reveal-card:nth-child(3n) {
+  --reveal-transform: translate3d(30px, 34px, 0) scale(0.985);
+  --reveal-delay: 150ms;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal-section,
-  .scroll-reveal-section.is-visible {
+  .scroll-reveal-section.is-visible,
+  .scroll-reveal-item,
+  .scroll-reveal-item.is-visible {
     opacity: 1;
     transform: none;
     filter: none;
