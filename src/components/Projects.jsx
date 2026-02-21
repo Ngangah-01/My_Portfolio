@@ -55,9 +55,9 @@ export default function Projects() {
             </div>
 
             <div className="relative z-10 w-full max-w-[1280px] mx-auto">
-                <div className="w-full grid grid-cols-1 gap-10 ">
+                <div className="w-full grid grid-cols-1 gap-6">
                 {/* Header */}
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-8">
                     <div className="w-full">
                         <div className="flex items-center gap-2 text-primary text-xs font-bold tracking-widest uppercase mb-2">
                             <span className="w-8 h-[1px] bg-primary"></span>
@@ -85,7 +85,7 @@ export default function Projects() {
                 </div>
 
                 {/* Desktop: Bento Grid */}
-                <div className="hidden lg:grid grid-cols-12 gap-8 auto-rows-[320px] mb-8">
+                <div className="hidden lg:grid grid-cols-12 gap-8 auto-rows-[320px] mb-2">
                     {/* Large Card - CryptoDash AI */}
                     <article ref={addToRefs} className="reveal-on-scroll group relative col-span-8 row-span-2 rounded-[2.5rem] overflow-hidden bg-[#0a0a0a] border border-white/5 shadow-2xl hover:border-primary/30 transition-all duration-500">
                         <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdm_tS8olD_V40Zlfc-0L6bz-xIn3Ou2iQkyUEuKanuEw3evxDjaqwtkZwSVZk69_gYzbYk0TxxJqGDleHm1bBW84IS6S_5LGbmFdfW2g4rNSNJTriG0rtSA3LO4aGhJjJaU9M5yflYcDnH6AVY9E1jjsVMsj3kBVCv_VzBEaI3jy19gIeDatPoBR_GOpMwteYlanOaKcGtc4MTFgJHMnqFqA-EMW_spzmSxORCUvv4mYsxRRE086uEOCE_TrFLWg7n2QpMGyuPpc')" }}></div>
@@ -222,7 +222,7 @@ export default function Projects() {
 
                 {/* Mobile: Horizontal Swipeable Layered Cards */}
                 <div className="lg:hidden -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
-                    <div className="flex gap-6 pb-8 pt-4">
+                    <div className="flex gap-6">
                         {[
                             { title: "CryptoDash AI", tag: "Web App • AI/ML", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdm_tS8olD_V40Zlfc-0L6bz-xIn3Ou2iQkyUEuKanuEw3evxDjaqwtkZwSVZk69_gYzbYk0TxxJqGDleHm1bBW84IS6S_5LGbmFdfW2g4rNSNJTriG0rtSA3LO4aGhJjJaU9M5yflYcDnH6AVY9E1jjsVMsj3kBVCv_VzBEaI3jy19gIeDatPoBR_GOpMwteYlanOaKcGtc4MTFgJHMnqFqA-EMW_spzmSxORCUvv4mYsxRRE086uEOCE_TrFLWg7n2QpMGyuPpc" },
                             { title: "Nexus", tag: "Mobile App", mockup: true, img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBOtXjQMYGOQ0Icdh4YbitLSNZVWsxaOHW5yPpn1Z9rv9R3IWmGsPE0M8Fury2E48XtqMKjqd02oitF6ujmmMknVpxJVdUhdURDfEtiEhPrVMdZaA-oypczV31DQ24119HcD144TnGRWo1Zi4M_hrwYTIw31WSvA-kygAiAwZ-58BH_6a7Ox1ijTV3Mip9ykwLqRHkL1vANqVF0BYuM6CqS7pxh7ejJY__ulbfjLv4F6mDVpgy98Atwfu-KvtAyM3yKdQl0EnXzLNQ" },
@@ -251,7 +251,7 @@ export default function Projects() {
                 </div>
 
                 {/* CTA */}
-                <div className="mt-20 text-center">
+                <div className="mt-10 text-center">
                     <p className="text-white/40 text-sm font-mono tracking-widest uppercase mb-4">Exploration continues</p>
                     <a
                         href="https://github.com/Ngangah-01"
@@ -289,4 +289,3 @@ export default function Projects() {
         </section>
     );
 }
-

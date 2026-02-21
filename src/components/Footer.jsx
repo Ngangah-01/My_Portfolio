@@ -1,4 +1,4 @@
-import { MdArrowUpward, MdCall, MdLink, MdMail } from "react-icons/md";
+import { MdArrowUpward, MdLink } from "react-icons/md";
 
 const Footer = () => {
     const handleNav = (item) => {
@@ -24,10 +24,74 @@ const Footer = () => {
 
     return (
         <footer className="relative z-10 mt-0 border-t border-white/10 bg-black/80 backdrop-blur-2xl animate-fade-in">
-            <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20 pt-20 pb-10">
+            <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20 pt-10 md:pt-20 pb-8 md:pb-10">
+
+                {/* Mobile Layout */}
+                <div className="md:hidden mb-10">
+                    <div className="space-y-4 mb-8">
+                        <div className="flex items-center gap-3">
+                            <div className="size-8 text-primary drop-shadow-[0_0_8px_rgba(60,249,26,0.6)]">
+                                <svg className="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor" />
+                                </svg>
+                            </div>
+                            <span className="text-white text-xl font-bold tracking-tight uppercase text-glow">NGANGA_DEV</span>
+                        </div>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Crafting next-generation digital experiences with precision and performance.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-8">
+                        <div className="space-y-4">
+                            <h4 className="text-primary text-xs font-bold tracking-widest uppercase">Information</h4>
+                            <ul className="space-y-3">
+                                {["About", "Services", "Projects", "Testimonials", "Blog"].map((item) => (
+                                    <li key={item}>
+                                        <button onClick={() => handleNav(item)} className="flex items-center gap-2 text-gray-400 hover:text-primary text-sm transition-colors group bg-none border-none cursor-pointer p-0">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
+                                            {item}
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h4 className="text-primary text-xs font-bold tracking-widest uppercase">Connect</h4>
+                            <ul className="space-y-3">
+                                {[
+                                    { name: "LinkedIn", href: "https://www.linkedin.com/in/ngangahillary254/" },
+                                    { name: "Instagram / X", href: "https://www.instagram.com/_code.nerd/" },
+                                    { name: "GitHub", href: "https://github.com/Ngangah-01" },
+                                ].map((social) => (
+                                    <li key={social.name}>
+                                        <a href={social.href} className="text-gray-400 hover:text-primary text-sm transition-colors">
+                                            {social.name}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 space-y-4">
+                        <h4 className="text-primary text-xs font-bold tracking-widest uppercase">Helpful Links</h4>
+                        <ul className="space-y-3">
+                            {["Support", "Terms & Conditions", "Privacy Policy"].map((item) => (
+                                <li key={item}>
+                                    <button className="flex items-center gap-2 text-gray-400 hover:text-primary text-sm transition-colors group bg-none border-none cursor-pointer p-0">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
+                                        {item}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
 
                 {/* Main Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
                     {/* Brand & About */}
                     <div className="space-y-6">
@@ -58,21 +122,6 @@ const Footer = () => {
                             performance, and purpose.
                         </p>
 
-                        <div className="space-y-3 pt-2">
-                            <div className="flex items-center gap-3 group">
-                                <MdCall className="text-primary text-xl drop-shadow-[0_0_5px_rgba(60,249,26,0.4)]" />
-                                <span className="text-gray-400 text-sm group-hover:text-primary transition-colors">
-                                    +254 745 115 711
-                                </span>
-                            </div>
-
-                            <div className="flex items-center gap-3 group">
-                                <MdMail className="text-primary text-xl drop-shadow-[0_0_5px_rgba(60,249,26,0.4)]" />
-                                <span className="text-gray-400 text-sm group-hover:text-primary transition-colors">
-                                    ngangahillary84@gmail.com
-                                </span>
-                            </div>
-                        </div>
                     </div>
 
                     {/* Information */}
@@ -149,7 +198,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="pt-5 md:pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8">
                     <p className="text-gray-500 text-sm font-medium">
                         © {new Date().getFullYear()} DEV_PORTFOLIO. All rights reserved.
                     </p>

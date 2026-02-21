@@ -36,9 +36,9 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="scroll-reveal-section relative min-h-screen flex flex-col py-12 px-6 md:px-12 lg:px-24 bg-background-dark">
+        <section id="about" className="scroll-reveal-section relative min-h-0 md:min-h-screen flex flex-col py-10 md:py-12 px-6 md:px-12 lg:px-24 bg-background-dark">
             {/* Background Effects */}
-            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+            <div className="mobile-performance-bg fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(60,249,26,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(60,249,26,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30"></div>
                 <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] animate-pulse"></div>
                 <div
@@ -60,9 +60,9 @@ export default function About() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            <div className="relative z-10 w-full max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-20">
                 {/* Left Column */}
-                <div className="lg:col-span-5 flex flex-col justify-center space-y-10">
+                <div className="lg:col-span-5 flex flex-col justify-center space-y-6 md:space-y-10">
                     <div className="space-y-4">
                         <div className="flex items-center gap-2 text-primary text-sm font-bold tracking-widest uppercase mb-2">
                             <span className="w-8 h-[1px] bg-primary"></span>
@@ -81,13 +81,13 @@ export default function About() {
                         </p>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-6 pt-4">
-                        <button className="group flex items-center gap-3 px-6 py-3 border border-primary/50 text-primary rounded hover:bg-primary/10 transition-all duration-300">
+                    <div className="flex items-center flex-nowrap gap-4 md:gap-6 pt-2 md:pt-4">
+                        <button className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2.5 md:py-3 border border-primary/50 text-primary text-sm md:text-base rounded hover:bg-primary/10 transition-all duration-300 whitespace-nowrap">
                             <span className="font-medium">Download Resume</span>
                             <MdDownload className="group-hover:translate-y-1 transition-transform" />
                         </button>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 md:gap-4">
                             <a
                                 className="w-10 h-10 rounded flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
                                 href="https://www.github.com/Ngangah-01"
@@ -126,60 +126,6 @@ export default function About() {
                                 </svg>
                             </a>
                         </div>
-                    </div>
-                </div>
-
-                {/* Mobile Timeline - Horizontal Scroll */}
-                <div className="lg:hidden relative">
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="text-xs font-bold tracking-widest uppercase text-primary">Roadmap</div>
-                        <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
-                    </div>
-                    <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide">
-                        {timelineItems.map((job, index) => (
-                            <div
-                                key={index}
-                                className={`snap-center shrink-0 w-[80vw] max-w-sm scroll-reveal-item ${
-                                    index % 2 === 0 ? "reveal-zoom" : "reveal-rise"
-                                }`}
-                                style={{ "--reveal-delay": `${index * 90}ms` }}
-                            >
-                                <div className="relative rounded-3xl p-6 min-h-[220px] flex flex-col bg-[rgba(22,32,21,0.5)] border border-white/10 backdrop-blur-md shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)] overflow-hidden">
-                                    <div className="absolute inset-0 pointer-events-none">
-                                        <div className="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 blur-2xl rounded-full" />
-                                        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-                                    </div>
-                                    <div className="relative z-10">
-                                        <div className="flex items-center justify-between mb-3">
-                                            <span className={`text-[10px] font-mono px-2 py-1 rounded ${job.current ? "text-primary bg-primary/20" : "text-gray-500 bg-white/5"}`}>
-                                                {job.date}
-                                            </span>
-                                            {job.current && (
-                                                <span className="text-[10px] text-primary font-bold tracking-widest uppercase">
-                                                    Current
-                                                </span>
-                                            )}
-                                        </div>
-                                        <h3 className="text-lg font-bold text-white mb-2">{job.title}</h3>
-                                        <p className="text-sm text-gray-400 leading-relaxed mb-4">{job.desc}</p>
-                                        {job.tags.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 mt-auto">
-                                                {job.tags.map((tag) => (
-                                                    <span key={tag} className="text-[10px] text-gray-300 bg-[#1e2b1d] px-3 py-1.5 rounded border border-white/5">
-                                                        {tag}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/30">
-                        <span className="h-px w-8 bg-white/10" />
-                        Swipe
-                        <span className="h-px w-8 bg-white/10" />
                     </div>
                 </div>
 

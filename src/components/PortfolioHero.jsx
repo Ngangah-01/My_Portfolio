@@ -6,13 +6,13 @@ import {
     MdFolder,
     MdKeyboardReturn,
     MdMail,
-    MdPublic,
     MdRocketLaunch,
     MdSatelliteAlt,
     MdTerminal,
     MdWifi,
     MdWork,
 } from 'react-icons/md';
+import { FaInstagram } from 'react-icons/fa';
 import avatarAvif from '../assets/avatar.avif';
 import avatarPng from '../assets/avatar.png';
 import avatarWebp from '../assets/avatar.webp';
@@ -120,26 +120,27 @@ export default function PortfolioHero() {
             </div>
 
             {/* Mobile Social Bar – under header */}
-<div className="lg:hidden relative z-40 mt-8 px-6">
+<div className="lg:hidden relative z-40 py-8 px-6 pointer-events-auto">
     <div className="flex items-center justify-center gap-4">
-        <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-primary/40"></div>
+        <div className="h-px flex-1 bg-linear-to-r from-transparent to-primary/40"></div>
 
         <div className="flex gap-5">
             {[
-                { Icon: MdTerminal, label: 'github' },
-                { Icon: MdWork, label: 'linkedin' },
-                { Icon: MdAlternateEmail, label: 'email' },
-                { Icon: MdMail, label: 'contact' },
-            ].map(({ Icon, label }) => (
-                <button
+                { Icon: MdTerminal, label: 'github', href: 'https://github.com/Ngangah-01' },
+                { Icon: MdWork, label: 'linkedin', href: 'https://www.linkedin.com/in/ngangahillary254/' },
+                { Icon: FaInstagram, label: 'instagram', href: 'https://www.instagram.com/_code.nerd/' },
+                { Icon: MdMail, label: 'email', href: 'mailto:ngangahillary84@gmail.com' },
+            ].map(({ Icon, label, href }) => (
+                <a
                     key={label}
-                    type="button"
+                    href={href}
                     aria-label={label}
-                    className="text-white/50 hover:text-primary transition-colors"
-                    onClick={() => {}}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="text-white/50 hover:text-primary transition-colors pointer-events-auto"
                 >
                     <Icon className="text-lg" />
-                </button>
+                </a>
             ))}
         </div>
 
@@ -158,8 +159,8 @@ export default function PortfolioHero() {
                             GITHUB
                         </span>
                     </a>
-                    <a className="group relative flex items-center justify-center text-white/40 hover:text-primary transition-all duration-300 hover:-translate-y-1" href="https://www.instagram.com/_code.nerd/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <MdPublic className="text-[24px]" />
+                    <a className="group relative flex items-center justify-center text-white/40 hover:text-primary transition-all duration-300 hover:-translate-y-1" href="https://www.instagram.com/_code.nerd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <FaInstagram className="text-[24px]" />
                         <span className="absolute left-10 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold tracking-widest bg-background-dark border border-primary/20 px-2 py-1 rounded text-primary whitespace-nowrap pointer-events-none">
                             INSTAGRAM
                         </span>

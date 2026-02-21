@@ -155,9 +155,10 @@ export default function Header() {
   }, [navItems, activeItem]);
 
   return (
-    <header className="w-full sticky top-0 z-50">
+    <>
+    <header className="fixed relative w-full top-0 left-0 right-0 z-50">
       {/* ===== TOP BAR ===== */}
-      <div className="flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 backdrop-blur-lg border-b border-white/5 bg-black/40 relative z-50">
+      <div className="min-h-[89px] flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 backdrop-blur-lg border-b border-white/5 bg-background-dark/80 md:bg-black/40 relative z-50">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="size-9 rounded-lg bg-primary flex items-center justify-center text-background-dark shadow-[0_0_15px_rgba(60,249,26,0.4)]">
@@ -253,7 +254,7 @@ export default function Header() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+            className="fixed top-0 inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -315,5 +316,6 @@ export default function Header() {
         </filter>
       </svg>
     </header>
+    </>
   );
 }

@@ -24,12 +24,27 @@ import {
     MdWeb,
     MdWorkspaces,
 } from "react-icons/md";
+import {
+    SiAmazonwebservices,
+    SiCss3,
+    SiDocker,
+    SiExpress,
+    SiFlutter,
+    SiGithubactions,
+    SiHtml5,
+    SiJavascript,
+    SiMongodb,
+    SiNodedotjs,
+    SiPostgresql,
+    SiReact,
+    SiVite,
+} from "react-icons/si";
 
 export default function Skills() {
     return (
         <section id="skills" className="scroll-reveal-section relative min-h-screen flex flex-col py-12 px-6 md:px-10 lg:px-24 bg-background-dark">
             {/* Background Effects */}
-            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+            <div className="mobile-performance-bg fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute -top-20 -left-20 text-[20vw] font-bold text-primary opacity-[0.02] leading-none whitespace-nowrap select-none">
                     /.
                 </div>
@@ -60,7 +75,7 @@ export default function Skills() {
                     </div>
 
                     {/* View Toggle (Grid selected by default) */}
-                    <div className="flex h-10 items-center rounded-lg bg-[#1c3518] p-1 border border-primary/20">
+                    <div className="hidden md:flex h-10 items-center rounded-lg bg-[#1c3518] p-1 border border-primary/20">
                         <label className="cursor-pointer flex h-full items-center px-4 rounded-md text-gray-400 hover:text-primary transition-all">
                             <MdWorkspaces className="text-sm mr-2" />
                             <span className="text-sm font-medium">Orbit</span>
@@ -72,10 +87,13 @@ export default function Skills() {
                             <input className="hidden" type="radio" name="view" value="grid" defaultChecked />
                         </label>
                     </div>
+                    <div className="md:hidden inline-flex items-center rounded-full bg-primary/20 border border-primary/40 px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary">
+                        All Systems
+                    </div>
                 </div>
 
                 {/* Category Filters */}
-                <div className="w-full flex flex-wrap gap-3">
+                <div className="hidden md:flex w-full flex-wrap gap-3">
                     <button className="px-4 py-2 rounded-full bg-primary/20 text-primary border border-primary/30 text-sm font-medium hover:bg-primary hover:text-background-dark transition-all shadow-[0_0_10px_rgba(60,249,26,0.1)]">
                         All Systems
                     </button>
@@ -90,8 +108,47 @@ export default function Skills() {
                     </button>
                 </div>
 
+                {/* Mobile Skill Stack */}
+                <div className="md:hidden flex flex-col gap-6 mt-2">
+                    <div className="scroll-reveal-item reveal-rise rounded-2xl border border-primary/20 bg-[#0f1a0e] p-4">
+                        <h3 className="text-sm font-bold tracking-wider uppercase text-blue-300 mb-3">Frontend Domain</h3>
+                        <div className="grid grid-cols-4 gap-3">
+                            {[["HTML", SiHtml5], ["CSS", SiCss3], ["JavaScript", SiJavascript], ["React", SiReact], ["Vite", SiVite], ["Flutter", SiFlutter]].map(([name, Icon]) => (
+                                <div key={name} className="rounded-xl border border-white/10 bg-white/5 p-2 text-center">
+                                    <Icon className="mx-auto text-xl text-blue-300" />
+                                    <p className="mt-1 text-[10px] text-gray-300">{name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="scroll-reveal-item reveal-slide-left rounded-2xl border border-primary/20 bg-[#0f1a0e] p-4">
+                        <h3 className="text-sm font-bold tracking-wider uppercase text-emerald-300 mb-3">Backend & Data</h3>
+                        <div className="grid grid-cols-4 gap-3">
+                            {[["Node", SiNodedotjs], ["Express", SiExpress], ["MongoDB", SiMongodb], ["Postgres", SiPostgresql]].map(([name, Icon]) => (
+                                <div key={name} className="rounded-xl border border-white/10 bg-white/5 p-2 text-center">
+                                    <Icon className="mx-auto text-xl text-emerald-300" />
+                                    <p className="mt-1 text-[10px] text-gray-300">{name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="scroll-reveal-item reveal-slide-right rounded-2xl border border-primary/20 bg-[#0f1a0e] p-4">
+                        <h3 className="text-sm font-bold tracking-wider uppercase text-purple-300 mb-3">Infrastructure & Ops</h3>
+                        <div className="grid grid-cols-4 gap-3">
+                            {[["Docker", SiDocker], ["AWS", SiAmazonwebservices], ["GitHub CI", SiGithubactions]].map(([name, Icon]) => (
+                                <div key={name} className="rounded-xl border border-white/10 bg-white/5 p-2 text-center">
+                                    <Icon className="mx-auto text-xl text-purple-300" />
+                                    <p className="mt-1 text-[10px] text-gray-300">{name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
                 {/* Skill Categories */}
-                <div className="flex flex-col gap-12 mt-2">
+                <div className="hidden md:flex flex-col gap-12 mt-2">
                     {/* Frontend */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
