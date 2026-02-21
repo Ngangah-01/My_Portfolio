@@ -16,6 +16,7 @@ import { FaInstagram } from 'react-icons/fa';
 import avatarAvif from '../assets/avatar.avif';
 import avatarPng from '../assets/avatar.png';
 import avatarWebp from '../assets/avatar.webp';
+import DownloadCVButton from './Downloadbutton';
 
 export default function PortfolioHero() {
     const [terminalInput, setTerminalInput] = useState('');
@@ -31,7 +32,7 @@ export default function PortfolioHero() {
         '// Status check',
         '> system.status()',
         'OPTIMAL - ALL SYSTEMS FUNCTIONAL',
-        'alex@dev:~/repo $ '
+        'ngangah@dev:~/repo $ '
     ]);
     const [currentLine, setCurrentLine] = useState('');
     const [effectsReady, setEffectsReady] = useState(false);
@@ -64,7 +65,7 @@ export default function PortfolioHero() {
                 ...prev.slice(0, -1),
                 `${prev[prev.length - 1]}${input}`,
                 response,
-                'alex@dev:~/repo $ '
+                'ngangah@dev:~/repo $ '
             ]);
             setCurrentLine('');
         } else if (e.key === 'Backspace') {
@@ -120,33 +121,33 @@ export default function PortfolioHero() {
             </div>
 
             {/* Mobile Social Bar – under header */}
-<div className="lg:hidden relative z-40 py-8 px-6 pointer-events-auto">
-    <div className="flex items-center justify-center gap-4">
-        <div className="h-px flex-1 bg-linear-to-r from-transparent to-primary/40"></div>
+            <div className="lg:hidden relative z-40 py-8 px-6 pointer-events-auto">
+                <div className="flex items-center justify-center gap-4">
+                    <div className="h-px flex-1 bg-linear-to-r from-transparent to-primary/40"></div>
 
-        <div className="flex gap-5">
-            {[
-                { Icon: MdTerminal, label: 'github', href: 'https://github.com/Ngangah-01' },
-                { Icon: MdWork, label: 'linkedin', href: 'https://www.linkedin.com/in/ngangahillary254/' },
-                { Icon: FaInstagram, label: 'instagram', href: 'https://www.instagram.com/_code.nerd/' },
-                { Icon: MdMail, label: 'email', href: 'mailto:ngangahillary84@gmail.com' },
-            ].map(({ Icon, label, href }) => (
-                <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    target={href.startsWith('http') ? '_blank' : undefined}
-                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="text-white/50 hover:text-primary transition-colors pointer-events-auto"
-                >
-                    <Icon className="text-lg" />
-                </a>
-            ))}
-        </div>
+                    <div className="flex gap-5">
+                        {[
+                            { Icon: MdTerminal, label: 'github', href: 'https://github.com/Ngangah-01' },
+                            { Icon: MdWork, label: 'linkedin', href: 'https://www.linkedin.com/in/ngangahillary254/' },
+                            { Icon: FaInstagram, label: 'instagram', href: 'https://www.instagram.com/_code.nerd/' },
+                            { Icon: MdMail, label: 'email', href: 'mailto:ngangahillary84@gmail.com' },
+                        ].map(({ Icon, label, href }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                aria-label={label}
+                                target={href.startsWith('http') ? '_blank' : undefined}
+                                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                className="text-white/50 hover:text-primary transition-colors pointer-events-auto"
+                            >
+                                <Icon className="text-lg" />
+                            </a>
+                        ))}
+                    </div>
 
-        <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-primary/40"></div>
-    </div>
-</div>
+                    <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-primary/40"></div>
+                </div>
+            </div>
 
 
             {/* Sidebar – not fixed (scrolls with page), added tooltips */}
@@ -211,11 +212,12 @@ export default function PortfolioHero() {
                             </p>
                         </div>
                         <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-2 w-full">
-                            <button className="group relative flex items-center justify-center gap-3 h-14 px-10 bg-primary text-background-dark text-base font-bold rounded hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(60,249,26,0.3)] w-full sm:w-auto">
-                                <span>Download CV</span>
-                                <MdRocketLaunch className="text-lg group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button className="flex items-center justify-center gap-2 h-14 px-10 bg-transparent border border-white/20 text-white text-base font-bold rounded hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300 w-full sm:w-auto" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+                            <DownloadCVButton />
+
+                            <button
+                                className="flex items-center justify-center gap-2 h-14 px-10 bg-transparent border border-white/20 text-white text-base font-bold rounded hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300 w-full sm:w-auto"
+                                onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+                            >
                                 <span>Get in Touch</span>
                             </button>
                         </div>
@@ -249,7 +251,7 @@ export default function PortfolioHero() {
                                         </div>
                                     ))}
                                     <div className="flex items-center">
-                                        alex@dev:~/repo $ {currentLine}
+                                        ngangah@dev:~/repo $ {currentLine}
                                         <span className="w-2 h-5 bg-primary animate-blink ml-1 inline-block"></span>
                                     </div>
                                 </div>
@@ -293,43 +295,43 @@ export default function PortfolioHero() {
                         </div>
                     </div>
                     <div className="lg:hidden order-1 flex justify-center items-center py-4">
-                                                    {/* Right Avatar */}
-                    <div className="relative order-1 lg:order-2 flex flex-col items-center justify-center lg:justify-end py-2 lg:py-0 w-full">
+                        {/* Right Avatar */}
+                        <div className="relative order-1 lg:order-2 flex flex-col items-center justify-center lg:justify-end py-2 lg:py-0 w-full">
 
 
-                        <div className="absolute inset-0 rounded-full transform scale-90 lg:translate-x-10"></div>
-                        <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] group/avatar">
-                            <div className="absolute inset-0 rounded-full border border-white/5"></div>
-                            <div className="absolute -inset-4 md:-inset-8 rounded-full border border-dashed border-primary/20 animate-spin"></div>
-                            <div className="absolute inset-8 rounded-full border border-dotted border-white/10 animate-spin-reverse"></div>
-                            <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/50 shadow-2xl relative bg-background-dark z-10 group-hover/avatar:border-primary transition-colors duration-500">
-                                <picture>
-                                    <source srcSet={avatarAvif} type="image/avif" />
-                                    <source srcSet={avatarWebp} type="image/webp" />
-                                    <img
-                                        alt="Futuristic portrait of a developer with clean lighting"
-                                        className="w-full h-full object-cover grayscale group-hover/avatar:grayscale-0 transition-all duration-700 ease-out scale-105 group-hover/avatar:scale-110"
-                                        src={avatarPng}
-                                    />
-                                </picture>
-                            </div>
+                            <div className="absolute inset-0 rounded-full transform scale-90 lg:translate-x-10"></div>
+                            <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[600px] lg:h-[600px] group/avatar">
+                                <div className="absolute inset-0 rounded-full border border-white/5"></div>
+                                <div className="absolute -inset-4 md:-inset-8 rounded-full border border-dashed border-primary/20 animate-spin"></div>
+                                <div className="absolute inset-8 rounded-full border border-dotted border-white/10 animate-spin-reverse"></div>
+                                <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/50 shadow-2xl relative bg-background-dark z-10 group-hover/avatar:border-primary transition-colors duration-500">
+                                    <picture>
+                                        <source srcSet={avatarAvif} type="image/avif" />
+                                        <source srcSet={avatarWebp} type="image/webp" />
+                                        <img
+                                            alt="Futuristic portrait of a developer with clean lighting"
+                                            className="w-full h-full object-cover grayscale group-hover/avatar:grayscale-0 transition-all duration-700 ease-out scale-105 group-hover/avatar:scale-110"
+                                            src={avatarPng}
+                                        />
+                                    </picture>
+                                </div>
 
-                            <div className="absolute bottom-0 right-0 md:bottom-6 md:right-6 lg:bottom-12 lg:right-4 z-20">
-                                <div className="bg-background-dark/80 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] flex items-center gap-4 hover:border-primary/50 transition-colors duration-300">
-                                    <div className="relative flex items-center justify-center size-10 bg-white/5 rounded-lg border border-white/10">
-                                        <MdWifi className="text-primary text-xl" />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Current Status</span>
-                                        <span className="text-sm font-bold text-white flex items-center gap-2">
-                                            Online
-                                            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                                        </span>
+                                <div className="absolute bottom-0 right-0 md:bottom-6 md:right-6 lg:bottom-12 lg:right-4 z-20">
+                                    <div className="bg-background-dark/80 backdrop-blur-md border border-white/10 p-4 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] flex items-center gap-4 hover:border-primary/50 transition-colors duration-300">
+                                        <div className="relative flex items-center justify-center size-10 bg-white/5 rounded-lg border border-white/10">
+                                            <MdWifi className="text-primary text-xl" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Current Status</span>
+                                            <span className="text-sm font-bold text-white flex items-center gap-2">
+                                                Online
+                                                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
                 <div className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-bounce-slow cursor-pointer hover:text-primary transition-colors group">

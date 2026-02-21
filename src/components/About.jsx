@@ -1,5 +1,5 @@
 import { MdDownload, MdKeyboardDoubleArrowDown } from "react-icons/md";
-
+import DownloadCVButton from "./Downloadbutton";
 export default function About() {
     const timelineItems = [
         {
@@ -82,10 +82,7 @@ export default function About() {
                     </div>
 
                     <div className="flex items-center flex-nowrap gap-4 md:gap-6 pt-2 md:pt-4">
-                        <button className="group flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2.5 md:py-3 border border-primary/50 text-primary text-sm md:text-base rounded hover:bg-primary/10 transition-all duration-300 whitespace-nowrap">
-                            <span className="font-medium">Download Resume</span>
-                            <MdDownload className="group-hover:translate-y-1 transition-transform" />
-                        </button>
+                         <DownloadCVButton />
 
                         <div className="flex items-center gap-2 md:gap-4">
                             <a
