@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 
 export default function Header() {
@@ -78,7 +78,7 @@ export default function Header() {
     setHoveredItem(null);
   }
 
-  function handleNavClick(event, targetId, label, closeMobile = false) {
+  const handleNavClick = useCallback((event, targetId, label, closeMobile = false) => {
     event.preventDefault();
     manualActiveUntilRef.current = Date.now() + 800;
     setActiveItem(label);
@@ -102,7 +102,7 @@ export default function Header() {
         }
       }, closeMobile ? 50 : 0);
     }
-  }
+  }, []);
 
   const currentFocus = hoveredItem || activeItem;
 
