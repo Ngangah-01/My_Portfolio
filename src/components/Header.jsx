@@ -156,7 +156,7 @@ export default function Header() {
 
   return (
     <>
-    <header className="fixed relative w-full top-0 left-0 right-0 z-50">
+    <header className="fixed w-full top-0 left-0 right-0 z-50">
       {/* ===== TOP BAR ===== */}
       <div className="min-h-[89px] flex items-center justify-between px-6 py-6 md:px-12 lg:px-20 backdrop-blur-lg border-b border-white/5 bg-background-dark/80 md:bg-black/40 relative z-50">
         {/* Logo */}

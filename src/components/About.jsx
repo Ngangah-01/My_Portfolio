@@ -40,13 +40,13 @@ export default function About() {
             {/* Background Effects */}
             <div className="mobile-performance-bg fixed inset-0 z-0 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(60,249,26,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(60,249,26,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30"></div>
-                <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] animate-pulse"></div>
+                <div className="absolute top-[-10%] right-[-5%] w-125 h-125 bg-primary/5 rounded-full blur-[100px] animate-pulse"></div>
                 <div
-                    className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] animate-pulse"
+                    className="absolute bottom-[10%] left-[-10%] w-150 h-150 bg-primary/5 rounded-full blur-[120px] animate-pulse"
                     style={{ animationDelay: "2s" }}
                 ></div>
                 <div
-                    className="absolute top-1/4 left-[-50px] text-[20vw] font-bold text-white/[0.05] whitespace-nowrap select-none rotate-90 origin-left"
+                    className="absolute top-1/4 -left-12.5 text-[20vw] font-bold text-white/5 whitespace-nowrap select-none rotate-90 origin-left"
                     style={{ lineHeight: "0.8" }}
                 >
                     DEVELOPER

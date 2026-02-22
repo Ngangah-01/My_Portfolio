@@ -1,6 +1,170 @@
+import { useState } from "react";
 import { MdCall, MdMail, MdPinDrop, MdSend } from "react-icons/md";
+import Swal from "sweetalert2";
 
 export default function Contact() {
+
+    const API_URL = "http://localhost:8081/api/contact";
+
+    const [form, setForm] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+        marketingConsent: false,
+        dataConsent: false,
+    });
+
+    const [loading, setLoading] = useState(false);
+    const [successMsg, setSuccessMsg] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
+    const [fieldErrors, setFieldErrors] = useState({});
+
+    const showThemedAlert = (options) =>
+        Swal.fire({
+            background: "rgba(10, 15, 9, 0.96)",
+            color: "#f3f4f6",
+            iconColor: "#3cf91a",
+            backdrop: "rgba(5, 10, 5, 0.78)",
+            timerProgressBar: true,
+            customClass: {
+                popup: "site-swal-popup",
+                title: "site-swal-title",
+                htmlContainer: "site-swal-text",
+                timerProgressBar: "site-swal-progress",
+            },
+            ...options,
+        });
+
+    const validate = () => {
+        const errors = {};
+
+        if (!form.firstName.trim()) errors.firstName = "First name is required.";
+        if (!form.lastName.trim()) errors.lastName = "Last name is required.";
+
+        if (form.email.trim()) {
+            const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+            if (!emailOk) errors.email = "Enter a valid email address.";
+        } else {
+            errors.email = "Email is required.";
+        }
+
+        if (!form.message.trim()) errors.message = "Message is required.";
+
+        if (!form.dataConsent) errors.dataConsent = "You must consent to data storage to submit.";
+
+        return errors;
+    };
+
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setForm((prev) => ({
+            ...prev,
+            [name]: type === "checkbox" ? checked : value,
+        }));
+        // Clear field-specific error when user starts typing
+        if (fieldErrors[name]) {
+            setFieldErrors((prev) => {
+                const copy = { ...prev };
+                delete copy[name];
+                return copy;
+            });
+        }
+
+        //clear global messages while typing
+        if (successMsg) setSuccessMsg("");
+        if (errorMsg) setErrorMsg("");
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // 1) Frontend validation
+        const errors = validate();
+        setFieldErrors(errors);
+
+        if (Object.keys(errors).length > 0) {
+            // SweetAlert error summary (optional)
+            showThemedAlert({
+                icon: "error",
+                title: "Fix the highlighted fields",
+                text: "Please fill all required fields to submit.",
+                timer: 3000,
+                showConfirmButton: false,
+            });
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
+
+            const data = await res.json().catch(() => null);
+
+            if (!res.ok) {
+                // Backend validation errors -> map to field errors
+                if (data?.fields) {
+                    setFieldErrors(data.fields);
+
+                    showThemedAlert({
+                        icon: "error",
+                        title: "Validation failed",
+                        text: "Please correct the highlighted fields.",
+                        timer: 3500,
+                        showConfirmButton: false,
+                    });
+                } else {
+                    showThemedAlert({
+                        icon: "error",
+                        title: "Submission failed",
+                        text: data?.error || data?.message || "Request failed.",
+                        timer: 3500,
+                        showConfirmButton: false,
+                    });
+                }
+                return;
+            }
+
+            // ✅ Success message (auto disappears)
+            showThemedAlert({
+                icon: "success",
+                title: "Sent!",
+                text: "Your message was submitted successfully.",
+                timer: 5000,
+                showConfirmButton: false,
+            });
+
+            setForm({
+                firstName: "",
+                lastName: "",
+                email: "",
+                message: "",
+                marketingConsent: false,
+                dataConsent: false,
+            });
+
+            setFieldErrors({});
+        } catch (err) {
+            console.error("Submission error:", err);
+            showThemedAlert({
+                icon: "error",
+                title: "Network error",
+                text: "Backend is unreachable. Check if Spring Boot is running.",
+                timer: 4000,
+                showConfirmButton: false,
+            });
+            throw err;
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <section id="contact" className="scroll-reveal-section relative bg-background-dark py-12 px-6 lg:py-24 overflow-hidden">
             {/* Background Glows */}
@@ -40,23 +204,33 @@ export default function Contact() {
                                 Get in touch with us using the enquiry form or contact details below.
                             </p>
 
-                            <form className="space-y-6">
+                            <form className="space-y-6" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="text-sm font-semibold text-gray-300">First Name</label>
                                         <input
                                             className="w-full bg-white/5 border border-primary/20 rounded-xl px-4 py-4 text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md"
+                                            name="firstName"
+                                            value={form.firstName}
+                                            onChange={handleChange}
                                             placeholder="First name"
                                             type="text"
                                         />
+                                        {fieldErrors.firstName && (
+                                            <p className="text-red-500 text-sm mt-1">{fieldErrors.firstName}</p>)}
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-semibold text-gray-300">Last Name</label>
                                         <input
                                             className="w-full bg-white/5 border border-primary/20 rounded-xl px-4 py-4 text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md"
+                                            name="lastName"
+                                            value={form.lastName}
+                                            onChange={handleChange}
                                             placeholder="Last name"
                                             type="text"
                                         />
+                                        {fieldErrors.lastName && (
+                                            <p className="text-red-500 text-sm mt-1">{fieldErrors.lastName}</p>)}
                                     </div>
                                 </div>
 
@@ -64,28 +238,41 @@ export default function Contact() {
                                     <label className="text-sm font-semibold text-gray-300">Email</label>
                                     <input
                                         className="w-full bg-white/5 border border-primary/20 rounded-xl px-4 py-4 text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md"
+                                        name="email"
+                                        value={form.email}
+                                        onChange={handleChange}
                                         placeholder="you@company.com"
                                         type="email"
                                     />
+                                    {fieldErrors.email && (
+                                        <p className="text-red-500 text-sm mt-1">{fieldErrors.email}</p>)}
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-semibold text-gray-300">Message</label>
                                     <textarea
                                         className="w-full bg-white/5 border border-primary/20 rounded-xl px-4 py-4 text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all backdrop-blur-md resize-none"
+                                        name="message"
+                                        value={form.message}
+                                        onChange={handleChange}
                                         placeholder="Tell me about your project..."
                                         rows={5}
                                     />
+                                    {fieldErrors.message && (
+                                        <p className="text-red-500 text-sm mt-1">{fieldErrors.message}</p>)}
                                 </div>
 
                                 <div className="space-y-4">
                                     <label className="flex items-start gap-3 cursor-pointer group">
                                         <input
                                             className="mt-1 bg-white/5 border-primary/30 rounded text-primary focus:ring-primary"
+                                            name="marketingConsent"
+                                            checked={form.marketingConsent}
+                                            onChange={handleChange}
                                             type="checkbox"
                                         />
                                         <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
-                                            I agree to receive other communication messages.
+                                            I agree to receive marketing and other communication messages.
                                             <span className="text-primary ml-1">*</span>
                                         </span>
                                     </label>
@@ -93,8 +280,14 @@ export default function Contact() {
                                     <label className="flex items-start gap-3 cursor-pointer group">
                                         <input
                                             className="mt-1 bg-white/5 border-primary/30 rounded text-primary focus:ring-primary"
+                                            name="dataConsent"
+                                            checked={form.dataConsent}
+                                            onChange={handleChange}
                                             type="checkbox"
                                         />
+                                        {fieldErrors.dataConsent && (
+                                            <p className="text-red-500 text-sm mt-1">{fieldErrors.dataConsent}</p>)}
+                                        {/* This consent is mandatory for form submission, but we still allow users to check it to see the error message if they try to submit without checking it. */}
                                         <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
                                             I give my consent to store my data for processing purposes.
                                             <span className="text-primary ml-1">*</span>
@@ -102,11 +295,19 @@ export default function Contact() {
                                     </label>
                                 </div>
 
+                                {successMsg && (
+                                    <div className="border border-green-500/30 bg-green-500/10 text-green-200 px-4 py-3 rounded-xl">
+                                        {successMsg}
+                                    </div>
+                                )}
+
                                 <button
                                     type="submit"
-                                    className="mt-4 w-full md:w-auto bg-primary text-background-dark px-10 py-4 rounded-xl font-bold hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(60,249,26,0.4)] transition-all duration-300 flex items-center justify-center gap-2"
+                                    disabled={loading}
+                                    className={`mt-4 w-full md:w-auto bg-primary text-background-dark px-10 py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2
+                                    ${loading ? "opacity-60 cursor-not-allowed" : "hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(60,249,26,0.4)]"}`}
                                 >
-                                    Initialize Connection
+                                    {loading ? "Sending..." : "Initialize Connection"}
                                     <MdSend />
                                 </button>
                             </form>
@@ -171,7 +372,7 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
 

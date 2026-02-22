@@ -274,18 +274,7 @@ export default function Projects() {
             </div>
             </div>
 
-            {/* Scroll Hint */}
-            <div className="fixed bottom-8 right-8 z-50 animate-float hidden lg:block">
-                <button className="group flex items-center gap-3 bg-black/80 backdrop-blur-xl border border-white/10 pr-6 pl-2 py-2 rounded-full shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:border-primary/50 transition-all">
-                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-colors text-white border border-white/10">
-                        <MdArrowDownward className="text-[20px]" />
-                    </div>
-                    <div className="flex flex-col items-start">
-                        <span className="text-[10px] text-white/40 uppercase tracking-wider font-bold">Scroll</span>
-                        <span className="text-sm font-bold text-white group-hover:text-primary transition-colors">Explore</span>
-                    </div>
-                </button>
-            </div>
+           
         </section>
     );
 }

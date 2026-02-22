@@ -183,7 +183,7 @@ export default function PortfolioHero() {
             </div>
 
             {/* Main Content – background-dark as #0a0f09 */}
-            <main className="flex-grow flex items-center justify-center px-6 md:px-12 lg:px-20 py-12 lg:pl-32 relative">
+            <main className="flex-grow flex items-center justify-center px-6 md:px-12 lg:px-20 py-24 lg:pl-32 relative">
                 <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
                     <div className="flex flex-col gap-8 order-2 lg:order-1 text-center lg:text-left items-center lg:items-start">
                         <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-background-dark border border-primary/20 w-fit backdrop-blur-sm shadow-lg">
