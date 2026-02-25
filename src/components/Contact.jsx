@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MdCall, MdMail, MdPinDrop, MdSend } from "react-icons/md";
+import { MdCall, MdPinDrop, MdSend } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 export default function Contact() {
@@ -155,7 +156,7 @@ export default function Contact() {
             showThemedAlert({
                 icon: "error",
                 title: "Network error",
-                text: "Backend is unreachable. Check if Spring Boot is running.",
+                text: "Server is unreachable. Check if services is running.",
                 timer: 4000,
                 showConfirmButton: false,
             });
@@ -332,12 +333,19 @@ export default function Contact() {
                             <div className="bg-surface-dark/50 border border-white/10 rounded-3xl p-8 space-y-8 backdrop-blur-sm">
                                 <div className="flex items-start gap-4">
                                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                                        <MdMail />
+                                        <FaWhatsapp />
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-white mb-1">Quick Contact</h3>
+                                        <h3 className="text-lg font-bold text-white mb-1">Chat on WhatsApp</h3>
                                         <p className="text-gray-400 text-sm">
-                                            Email: <a className="text-primary hover:underline" href="mailto:hello@dev_portfolio.com">ngangah@dev.com</a>
+                                            <a
+                                                className="text-primary hover:underline"
+                                                href="https://wa.me/254745115711?text=Hello%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss.%20I%27m%20looking%20for%20help%20building%20a%20digital%20solution%20%E2%80%94%20whether%20it%27s%20a%20website%2C%20mobile%20app%2C%20or%20custom%20software.%20Are%20you%20available%20to%20talk%20about%20it%3F"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Start WhatsApp chat
+                                            </a>
                                         </p>
                                     </div>
                                 </div>
@@ -350,7 +358,7 @@ export default function Contact() {
                                         <h3 className="text-lg font-bold text-white mb-1">Phone Number</h3>
                                         <p className="text-gray-400 text-sm">
                                             International: +(254) 745 115 711<br />
-                                            Support: +(254) 745 115 711
+                                            Support: +(254) 101 350 206
                                         </p>
                                     </div>
                                 </div>
@@ -363,7 +371,7 @@ export default function Contact() {
                                         <h3 className="text-lg font-bold text-white mb-1">Headquarters</h3>
                                         <p className="text-gray-400 text-sm">
                                             Tech Plaza, Suite 105<br />
-                                            Nairobi, P.O 94105, Kenya.
+                                            Nairobi, Kenya.
                                         </p>
                                     </div>
                                 </div>
