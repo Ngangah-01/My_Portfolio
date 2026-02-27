@@ -5,7 +5,9 @@ import Swal from "sweetalert2";
 
 export default function Contact() {
 
-    const API_URL = "http://localhost:8081/api/contact";
+    const API_URL = `${import.meta.env.VITE_API_URL}/api/contact`;
+    
+
 
     const [form, setForm] = useState({
         firstName: "",
