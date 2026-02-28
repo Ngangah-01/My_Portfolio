@@ -7,6 +7,7 @@ export default function Contact() {
 
     const API_URL = `${import.meta.env.VITE_API_URL}/api/contact`;
     
+    console.log("API URL:", import.meta.env.VITE_API_URL);
 
 
     const [form, setForm] = useState({
