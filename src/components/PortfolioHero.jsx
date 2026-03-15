@@ -244,7 +244,7 @@ export default function PortfolioHero() {
                                 </div>
 
                                 {/* Interactive Terminal – darkened background-dark, Fira Code font */}
-                                <div className="p-6 pt-14 font-mono text-xs md:text-sm leading-relaxed h-full overflow-y-auto bg-black/90 flex flex-col">
+                                <div className="p-6 pt-14 font-mono text-xs md:text-sm leading-relaxed h-full overflow-y-auto bg-black/70 flex flex-col">
                                     {terminalOutput.map((line, index) => (
                                         <div key={index} className="whitespace-pre-wrap">
                                             {line}

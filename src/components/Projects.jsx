@@ -13,6 +13,8 @@ import {
 
 export default function Projects() {
     const revealRefs = useRef([]);
+    const cyberCafeUrl = 'https://cybercafe-0k4y.onrender.com/';
+    const cyberCafePreview = '/cyber.jpg';
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -37,6 +39,10 @@ export default function Projects() {
         if (el && !revealRefs.current.includes(el)) {
             revealRefs.current.push(el);
         }
+    };
+
+    const openCyberCafe = () => {
+        window.open(cyberCafeUrl, '_blank', 'noopener,noreferrer');
     };
 
     return (
@@ -86,42 +92,69 @@ export default function Projects() {
 
                 {/* Desktop: Bento Grid */}
                 <div className="hidden lg:grid grid-cols-12 gap-8 auto-rows-[320px] mb-2">
-                    {/* Large Card - CryptoDash AI */}
-                    <article ref={addToRefs} className="reveal-on-scroll group relative col-span-8 row-span-2 rounded-[2.5rem] overflow-hidden bg-[#0a0a0a] border border-white/5 shadow-2xl hover:border-primary/30 transition-all duration-500">
-                        <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdm_tS8olD_V40Zlfc-0L6bz-xIn3Ou2iQkyUEuKanuEw3evxDjaqwtkZwSVZk69_gYzbYk0TxxJqGDleHm1bBW84IS6S_5LGbmFdfW2g4rNSNJTriG0rtSA3LO4aGhJjJaU9M5yflYcDnH6AVY9E1jjsVMsj3kBVCv_VzBEaI3jy19gIeDatPoBR_GOpMwteYlanOaKcGtc4MTFgJHMnqFqA-EMW_spzmSxORCUvv4mYsxRRE086uEOCE_TrFLWg7n2QpMGyuPpc')" }}></div>
+                    {/* Large Card - CyberCafe Management */}
+                    <a
+                        ref={addToRefs}
+                        href={cyberCafeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="reveal-on-scroll group relative col-span-8 row-span-2 rounded-[2.5rem] overflow-hidden bg-[#0a0a0a] border border-white/5 shadow-2xl hover:border-primary/30 transition-all duration-500 cursor-pointer block"
+                    >
+                        <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url("${cyberCafePreview}")` }}></div>
                         <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
+                        <div className="absolute inset-0 opacity-50">
+                            <div className="absolute inset-0 bg-[linear-gradient(rgba(60,249,26,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(60,249,26,0.08)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
+                            <div className="absolute left-[12%] top-[18%] h-40 w-40 rounded-full bg-primary/20 blur-3xl"></div>
+                            <div className="absolute right-[16%] top-[14%] h-52 w-52 rounded-full bg-cyan-400/10 blur-3xl"></div>
+                            <div className="absolute bottom-[18%] right-[24%] h-32 w-32 rounded-full bg-primary/10 blur-2xl"></div>
+                        </div>
 
                         <div className="absolute bottom-8 left-8 right-8 lg:right-auto lg:w-[480px] z-20">
                             <div className="bg-black/70 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl group-hover:-translate-y-2 transition-transform">
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="flex gap-2">
                                         <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded-full">Web App</span>
-                                        <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/60 bg-white/5 border border-white/10 rounded-full">AI/ML</span>
+                                        <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white/60 bg-white/5 border border-white/10 rounded-full">Operations</span>
                                     </div>
                                     <MdDashboard className="text-white/40" />
                                 </div>
-                                <h3 className="text-3xl font-bold text-white mb-2">CryptoDash AI</h3>
-                                <p className="text-white/70 text-sm mb-6">A comprehensive financial dashboard integrating predictive machine learning models to forecast market trends. Features real-time WebSocket data streams.</p>
+                                <h3 className="text-3xl font-bold text-white mb-2">CyberCafe Management</h3>
+                                <p className="text-white/70 text-sm mb-6">A cybercafe operations platform built to manage client sessions, workstation usage, billing flow, and day-to-day service activity from one streamlined dashboard.</p>
                                 <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                                    <div className="flex -space-x-2">
-                                        <div className="w-8 h-8 rounded-full bg-[#202020] border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">Re</div>
-                                        <div className="w-8 h-8 rounded-full bg-[#202020] border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">Ts</div>
-                                        <div className="w-8 h-8 rounded-full bg-[#202020] border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">Py</div>
-                                    </div>
-                                    <button className="flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors group/btn">
-                                        View Case Study
+                                    <div className="flex gap-1">
+                                        <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] text-white/70">Python</span>
+                                        <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] text-white/70">Express</span>
+                                                                            <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] text-white/70">Express</span>
+
+                                        <span className="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] text-white/70 ">JS</span>                                </div>
+                                    <button
+                                        type="button"
+                                        onClick={(event) => {
+                                            event.stopPropagation();
+                                            openCyberCafe();
+                                        }}
+                                        className="flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors group/btn"
+                                    >
+                                        Visit Live Site
                                         <MdArrowForward className="text-[18px] group-hover/btn:translate-x-1 transition-transform" />
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                            <button className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center hover:bg-primary hover:scale-110 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                            <button
+                                type="button"
+                                onClick={(event) => {
+                                    event.stopPropagation();
+                                    openCyberCafe();
+                                }}
+                                className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center hover:bg-primary hover:scale-110 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                            >
                                 <MdNorthEast className="text-[24px]" />
                             </button>
                         </div>
-                    </article>
+                    </a>
 
                     {/* Mobile Mockup - Nexus */}
                     <article ref={addToRefs} className="reveal-on-scroll col-span-4 row-span-2 flex items-center justify-center" style={{ transitionDelay: '100ms' }}>
@@ -224,14 +257,19 @@ export default function Projects() {
                 <div className="lg:hidden -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
                     <div className="flex gap-6">
                         {[
-                            { title: "CryptoDash AI", tag: "Web App • AI/ML", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdm_tS8olD_V40Zlfc-0L6bz-xIn3Ou2iQkyUEuKanuEw3evxDjaqwtkZwSVZk69_gYzbYk0TxxJqGDleHm1bBW84IS6S_5LGbmFdfW2g4rNSNJTriG0rtSA3LO4aGhJjJaU9M5yflYcDnH6AVY9E1jjsVMsj3kBVCv_VzBEaI3jy19gIeDatPoBR_GOpMwteYlanOaKcGtc4MTFgJHMnqFqA-EMW_spzmSxORCUvv4mYsxRRE086uEOCE_TrFLWg7n2QpMGyuPpc" },
+                            { title: "CyberCafe Management", tag: "Web App • Operations", img: cyberCafePreview, href: cyberCafeUrl },
                             { title: "Nexus", tag: "Mobile App", mockup: true, img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBOtXjQMYGOQ0Icdh4YbitLSNZVWsxaOHW5yPpn1Z9rv9R3IWmGsPE0M8Fury2E48XtqMKjqd02oitF6ujmmMknVpxJVdUhdURDfEtiEhPrVMdZaA-oypczV31DQ24119HcD144TnGRWo1Zi4M_hrwYTIw31WSvA-kygAiAwZ-58BH_6a7Ox1ijTV3Mip9ykwLqRHkL1vANqVF0BYuM6CqS7pxh7ejJY__ulbfjLv4F6mDVpgy98Atwfu-KvtAyM3yKdQl0EnXzLNQ" },
                             { title: "DataVault", tag: "Data • Security", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCtxoBPHeMFRKDNclOMqKat2KDK3xlIJVumxQ6ywDkAonI_11-e57EkE6EFseoZkMuBzbsTAYVi2kWekxCjWP4ArMoiE7UDWoJ0-FtUIzoUB88h_V8rKVdUOzDfZh5us_7SD8XHsbMs8GQ5vcalLWVlPSqkR9dmHo7F3a9rGukvSc3kOIr54qfYt4epfkw-5PnkC7YxM60KKZfCI9UMTbiL6M428_NWWa3mIhfg5HcOrvDMPmlpKUd-cE6w0nhOTxqJGv0G7x2SuRE" },
                             { title: "GeoTrack VR", tag: "Immersive • WebXR", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBe6U4np4tEnJHP95qqxvwULEcvSEBzTmHAzrwGqdekMsLpfuYW-B_N0u0QVlpD7Y3YlvIXsSL7mWR6kAfWzR7QG-lxRVaqANRawOq54uGUF0Lt8IlgG0oWvLjEFhBSV6eL6nOBvUP-yNUJbNLGaC9tdUjdPJbzlVtH4z92oaeV_bPe1LeK3yFJcyHwLiOrgBBQ6NxHNaidKW5QH0LBDqPYJ91XBFWHH7sHbW7fzJ69znC6b9IpiSJvmxwpeZ2JjXpfmJTsBcWtMns" },
                             { title: "Aether UI", tag: "Component Library", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDBWta2lNlmZeQcH7kJ6FwLK73MUy1ChxjZd_-Kr4Z0CcSVoBfK9UevhnOjs7Z7QURuiTSW8e6ScNLVSHx_aLGspvoCyk9XqlYnr8y_bpqF7RlHlSoK9LJ6NmwvvdacV6RVNl07ENlP9KjnKUUqUDf_D6IsOw8E5S2mJTQ7Wk2Qy_4w5CAWN4R8twfcJHiU_94YIcTy3L64XRIb37ABCxHX4lG1r5tL9oVfrx9LiOT0cKNnom4Z1O6U-dvHbQYfoAj_xhirrwR_7Tw" },
                         ].map((project, i) => (
                             <div key={i} className="snap-center shrink-0 w-[85vw] first:ml-6 last:mr-6">
-                                <div className="relative rounded-3xl overflow-hidden bg-[#0a0a0a] border border-white/10 shadow-2xl">
+                                <a
+                                    href={project.href}
+                                    target={project.href ? '_blank' : undefined}
+                                    rel={project.href ? 'noopener noreferrer' : undefined}
+                                    className="relative block rounded-3xl overflow-hidden bg-[#0a0a0a] border border-white/10 shadow-2xl"
+                                >
                                     {project.mockup ? (
                                         <div className="relative h-96 bg-black rounded-3xl overflow-hidden border-8 border-[#222]">
                                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-7 bg-black rounded-b-2xl z-30"></div>
@@ -244,7 +282,7 @@ export default function Projects() {
                                         <span className="text-primary text-xs font-bold uppercase tracking-wider">{project.tag}</span>
                                         <h3 className="text-2xl font-bold text-white mt-1">{project.title}</h3>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         ))}
                     </div>
